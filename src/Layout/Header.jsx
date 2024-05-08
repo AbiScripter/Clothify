@@ -32,29 +32,29 @@ const Header = () => {
   return (
     <div>
       <Row className="nav" align="middle">
-        <Col span={18} className="left">
+        <Col xs={10} sm={8} md={12} lg={14} xl={16} className="left">
           <NavLink to="/home" className="navlink">
             <img src={logo} alt="logo" className="logo" />
           </NavLink>
         </Col>
 
-        <Col span={6} className="right">
+        <Col xs={14} sm={16} md={12} lg={10} xl={8} className="right">
           <NavLink to="/wishlist" className="navlink">
-            <span>
+            <span className="link-span">
               <HeartOutlined />
-              &nbsp;Wishlist
+              <span>&nbsp;Wishlist</span>
             </span>
           </NavLink>
           <NavLink to="/cart" className="navlink">
-            <span>
+            <span className="link-span">
               <ShoppingOutlined />
-              &nbsp;Bag
+              <span>&nbsp;Bag</span>
             </span>
           </NavLink>
           <NavLink to="/profile" className="navlink">
-            <span>
+            <span className="link-span">
               <UserOutlined />
-              &nbsp;Profile
+              <span>&nbsp;Profile</span>
             </span>
           </NavLink>
           <Button className="sign-out-btn" onClick={handleSignOut}>

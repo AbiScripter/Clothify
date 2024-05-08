@@ -78,10 +78,10 @@ const CouponModal = ({
 const CouponPreview = ({ couponDiscountPercent, showModal }) => {
   return couponDiscountPercent ? (
     <>
-      <Col span={18}>
+      <Col xs={18}>
         <h3> Coupon Applied STEAL{couponDiscountPercent} </h3>
       </Col>
-      <Col span={6}>
+      <Col xs={6}>
         <Button danger onClick={showModal}>
           EDIT
         </Button>
@@ -89,10 +89,10 @@ const CouponPreview = ({ couponDiscountPercent, showModal }) => {
     </>
   ) : (
     <>
-      <Col span={18}>
+      <Col xs={18}>
         <h3>Apply Coupons </h3>
       </Col>
-      <Col span={6}>
+      <Col xs={6}>
         <Button danger onClick={showModal}>
           APPLY
         </Button>

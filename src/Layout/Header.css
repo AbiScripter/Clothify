@@ -28,3 +28,15 @@
     align-items: center;
   }
 }
+
+@media (width<576px) {
+  .right {
+    gap: 1rem;
+  }
+
+  .link-span {
+    span:nth-child(2) {
+      display: none;
+    }
+  }
+}
