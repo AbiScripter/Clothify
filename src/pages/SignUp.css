@@ -1,0 +1,49 @@
+.singup-page-container {
+  /* border: 4px solid red; */
+}
+
+.app-logo {
+  /* font-family: "Raleway Dots", sans-serif; */
+  font-family: "Ultra", serif;
+  font-size: 3rem;
+  padding: 10px;
+  border-radius: 10px;
+  margin-left: 2rem;
+}
+
+.shop-btn {
+  width: 15rem;
+  border-radius: 0%;
+  margin-left: 3rem;
+  background-color: transparent !important;
+  color: black !important;
+  border: 1px solid black !important;
+}
+
+.shop-btn:hover {
+  background: #cd9a15 !important;
+}
+
+.background-img {
+  background-image: url("/src/asset/form-back.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh; /* Set the height to the full viewport height */
+  display: flex;
+  flex-direction: column;
+}
+
+.form-containers {
+  ::placeholder {
+    color: black;
+    opacity: 0.5;
+  }
+}
+
+.form-link {
+  color: #4896fb;
+  text-decoration: underline;
+  font-weight: bold;
+  cursor: pointer;
+}

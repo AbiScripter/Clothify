@@ -1,0 +1,28 @@
+.footer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 3rem;
+  border-top: 1px solid #eaeaec;
+  border-bottom: 1px solid #eaeaec;
+}
+
+.app-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+
+  img {
+    width: 45%;
+  }
+}
+
+.newsletter_email {
+  border-bottom: 2px solid black;
+  border-radius: 0 !important;
+  margin-bottom: 1rem;
+}
+
+.subscribe_btn {
+  background-color: black;
+  width: 10rem;
+}

@@ -1,0 +1,28 @@
+.wishlist_container {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 230px));
+  margin-top: 2rem;
+  min-height: 80vh;
+  padding: 1rem;
+}
+
+.wishlist_product .ant-card-body {
+  text-align: center;
+  padding: 0 !important;
+  margin-bottom: 1rem;
+}
+
+.empty_wishlist {
+  text-align: center;
+  min-height: 80vh;
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+
+  img {
+    width: 15rem;
+  }
+}

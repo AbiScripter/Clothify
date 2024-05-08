@@ -1,0 +1,30 @@
+.nav {
+  background: #f4e8d1;
+  padding: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.logo {
+  max-width: 7rem;
+}
+
+.navlink span {
+  font-size: 1.05rem;
+}
+
+.left {
+  /* border: 1px solid red; */
+}
+
+.right {
+  /* border: 2px solid blue; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+
+  span {
+    display: flex;
+    align-items: center;
+  }
+}

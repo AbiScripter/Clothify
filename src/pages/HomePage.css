@@ -1,0 +1,17 @@
+.home-page {
+  padding: 1rem;
+
+  .product .ant-card-body {
+    text-align: center;
+    padding: 0 !important;
+    margin-bottom: 1rem;
+  }
+}
+
+.products-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 170px));
+  gap: 1.3rem;
+  margin: 3rem 0;
+  padding: 1rem;
+}

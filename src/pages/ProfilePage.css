@@ -1,0 +1,8 @@
+.profile-container {
+  width: 500px;
+  margin: 0 auto;
+
+  h3:first-child {
+    display: none;
+  }
+}
