@@ -8,10 +8,35 @@
   }
 }
 
+.home-product-card {
+  min-height: 20rem !important;
+  border: 1px solid red;
+}
+
 .products-wrapper {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(100px, 170px));
   gap: 1.3rem;
   margin: 3rem 0;
   padding: 1rem;
+}
+
+@media (width<576px) {
+  .products-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* grid-template-columns: repeat(auto-fit, minmax(150px, 2s50px)); */
+  }
+
+  .home-product {
+    width: 9rem !important;
+    justify-content: center;
+    align-items: center;
+    /* border: 2px solid red; */
+
+    div:nth-child(2) {
+      padding: 10px !important;
+    }
+  }
 }

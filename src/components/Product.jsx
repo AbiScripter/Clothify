@@ -88,8 +88,9 @@ const Product = ({ data }) => {
   };
 
   return (
-    <div className="product">
+    <div className="home-product">
       <Card
+        className="home-product-card"
         cover={
           //memoize the image
           <ImageComponent src={data.imageUrl} />

@@ -26,3 +26,27 @@
     width: 15rem;
   }
 }
+.wishlist_product-btns {
+  display: flex;
+  gap: 0.2rem;
+  margin: 0.2rem;
+}
+
+@media (width<576px) {
+  .wishlist_container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* grid-template-columns: repeat(auto-fit, minmax(150px, 2s50px)); */
+  }
+
+  .wishlist_product {
+    /* border: 2px solid red; */
+    width: 10rem;
+  }
+
+  .wishlist_product-btns {
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+}

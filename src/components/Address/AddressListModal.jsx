@@ -44,10 +44,10 @@ const AddressModal = () => {
     <div>
       <Card className="address_preview">
         <Row justify="center" align="middle">
-          <Col xs={12} sm={14} lg={16}>
+          <Col xs={24} sm={14} lg={16}>
             <AddressPreview defaultAddress={defaultAddress} />
           </Col>
-          <Col xs={12} sm={10} lg={8}>
+          <Col xs={24} sm={10} lg={8}>
             <Button danger onClick={showModal}>
               {!defaultAddress ? "Set Default Address" : " CHANGE ADDRESS"}
             </Button>

@@ -69,14 +69,14 @@ const WishlistPage = () => {
                   <br />
                   <span> Rs. {item.price}</span>
                 </p>
-                <Flex gap={5} justify="center">
+                <div className="wishlist_product-btns">
                   <Button onClick={() => handleMovingToCart(item)}>
                     MOVE TO BAG
                   </Button>
                   <Button danger onClick={() => handleDeleteWishlist(item)}>
                     REMOVE
                   </Button>
-                </Flex>
+                </div>
               </Card>
             </div>
           );

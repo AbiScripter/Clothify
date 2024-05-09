@@ -41,7 +41,7 @@ const CartPage = () => {
         <div className="cart_page_left">
           <AddressModal />
 
-          <div>
+          <div className="cart-product-list">
             {list.map((item) => {
               return <CartItem item={item} key={item.id} />;
             })}

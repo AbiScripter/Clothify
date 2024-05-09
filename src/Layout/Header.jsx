@@ -4,6 +4,7 @@ import {
   HeartOutlined,
   ShoppingOutlined,
   UserOutlined,
+  LogoutOutlined,
 } from "@ant-design/icons";
 import "./Header.css";
 import logo from "../asset/myntra-logo.png";
@@ -32,13 +33,13 @@ const Header = () => {
   return (
     <div>
       <Row className="nav" align="middle">
-        <Col xs={10} sm={8} md={12} lg={14} xl={16} className="left">
+        <Col xs={12} sm={8} md={12} lg={14} xl={16} className="left">
           <NavLink to="/home" className="navlink">
             <img src={logo} alt="logo" className="logo" />
           </NavLink>
         </Col>
 
-        <Col xs={14} sm={16} md={12} lg={10} xl={8} className="right">
+        <Col xs={12} sm={16} md={12} lg={10} xl={8} className="right">
           <NavLink to="/wishlist" className="navlink">
             <span className="link-span">
               <HeartOutlined />
@@ -58,7 +59,8 @@ const Header = () => {
             </span>
           </NavLink>
           <Button className="sign-out-btn" onClick={handleSignOut}>
-            SignOut
+            <span className="log-out-text">SignOut</span>
+            <LogoutOutlined className="log-out-icon" />
           </Button>
         </Col>
         {/* <Col span={1}>

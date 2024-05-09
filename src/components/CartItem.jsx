@@ -89,8 +89,14 @@ const CartItem = ({ item }) => {
     <div>
       {item.quantity > 0 ? (
         <Card
-          className="card"
-          cover={<img src={item.imageUrl} alt="product" />}
+          className="cart-product-card"
+          cover={
+            <img
+              src={item.imageUrl}
+              alt="product"
+              className="cart-product-img"
+            />
+          }
         >
           <div>
             <h3>{item.name}</h3>
@@ -107,14 +113,14 @@ const CartItem = ({ item }) => {
             <p>₹{Math.floor(item.quantity * item.price)}</p>
           </div>
 
-          <Flex gap="small">
+          <div className="cart-product-btns">
             <Button size="small" onClick={() => handleMovingToWishlist(item)}>
               <span>MOVE TO WISHLIST</span>
             </Button>
             <Button size="small" danger onClick={() => handleCartDelete(item)}>
               DELETE FROM CART
             </Button>
-          </Flex>
+          </div>
         </Card>
       ) : (
         ""

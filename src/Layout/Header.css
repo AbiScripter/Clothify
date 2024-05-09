@@ -12,6 +12,11 @@
   font-size: 1.05rem;
 }
 
+.log-out-icon {
+  opacity: 0;
+  /* display: none !important; */
+}
+
 .left {
   /* border: 1px solid red; */
 }
@@ -37,6 +42,19 @@
   .link-span {
     span:nth-child(2) {
       display: none;
+    }
+  }
+
+  .sign-out-btn {
+    .log-out-text {
+      display: none;
+    }
+
+    .log-out-icon {
+      opacity: 1;
+      margin-left: -0.1rem !important;
+      /* text-align: center !important; */
+      /* margin-left: -1rem !important; */
     }
   }
 }
