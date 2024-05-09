@@ -46,7 +46,7 @@ const AddressCard = ({
         {address.city}, {address.state}{" "}
       </p>
       <p>Mobile: {address.mobile}</p>
-      <Flex gap={5}>
+      <div className="address-card-btns">
         <Button
           size="small"
           onClick={handleDelivery}
@@ -71,7 +71,7 @@ const AddressCard = ({
         <Button size="small" onClick={handleEdit}>
           EDIT
         </Button>
-      </Flex>
+      </div>
     </div>
   );
 };

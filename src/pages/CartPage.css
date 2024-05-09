@@ -64,6 +64,12 @@
     background-color: var(--orange-dark) !important;
   }
 }
+.address-card-btns {
+  display: flex;
+  gap: 0.3rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
 
 .coupon_container {
   border-bottom: 1px solid var(--border);

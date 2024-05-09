@@ -7,7 +7,9 @@ import {
   LogoutOutlined,
 } from "@ant-design/icons";
 import "./Header.css";
-import logo from "../asset/myntra-logo.png";
+// import logo from "../asset/myntra-logo.png";
+// import logo from "../asset/logo.png";
+import logo from "../asset/logoo.png";
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase";
 import { useDispatch } from "react-redux";
@@ -35,7 +37,10 @@ const Header = () => {
       <Row className="nav" align="middle">
         <Col xs={12} sm={8} md={12} lg={14} xl={16} className="left">
           <NavLink to="/home" className="navlink">
-            <img src={logo} alt="logo" className="logo" />
+            <div className="logo-container">
+              <img src={logo} alt="logo" className="logo" />
+              <span>Clothify</span>
+            </div>
           </NavLink>
         </Col>
 

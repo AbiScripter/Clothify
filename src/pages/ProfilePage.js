@@ -14,8 +14,10 @@ const ProfilePage = () => {
     <>
       <Header />
       <div className="profile-container">
-        <p>Name {user.name}</p>
-        <p>Email ID {user.email}</p>
+        <div className="user-details">
+          <p>{user.name.charAt(0).toUpperCase() + user.name.slice(1)}</p>
+          <p>{user.email}</p>
+        </div>
         <AddressList />
         {/* <AddressFormModal /> */}
       </div>

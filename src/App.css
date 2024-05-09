@@ -34,7 +34,12 @@ body {
   background-color: var(--beige-light) !important;
 }
 
-.ant-btn:hover {
+/* .ant-btn:hover {
+  background-color: var(--olive-dark) !important;
+  color: var(--beige-1) !important;
+} */
+
+.ant-btn:not([disabled]):hover {
   background-color: var(--olive-dark) !important;
   color: var(--beige-1) !important;
 }
@@ -46,7 +51,7 @@ body {
   font-weight: bold !important;
 }
 
-.ant-btn-dangerous:hover {
+.ant-btn-dangerous:not([disabled]):hover {
   background-color: var(--orange-dark) !important;
   color: var(--beige-1) !important;
 }

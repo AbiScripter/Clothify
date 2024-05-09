@@ -10,7 +10,6 @@
 
 .home-product-card {
   min-height: 20rem !important;
-  border: 1px solid red;
 }
 
 .products-wrapper {
@@ -33,7 +32,6 @@
     width: 9rem !important;
     justify-content: center;
     align-items: center;
-    /* border: 2px solid red; */
 
     div:nth-child(2) {
       padding: 10px !important;

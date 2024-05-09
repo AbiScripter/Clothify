@@ -6,3 +6,28 @@
     display: none;
   }
 }
+
+.user-details {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 3rem 0rem;
+
+  p {
+    margin: 0;
+    margin-bottom: 0.5rem;
+  }
+}
+
+@media (width<576px) {
+  .profile-container {
+    width: 350px;
+  }
+}
+
+@media (width<350px) {
+  .profile-container {
+    width: 300px;
+  }
+}
