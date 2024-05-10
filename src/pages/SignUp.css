@@ -1,3 +1,8 @@
+.signup-wrapper {
+  /* background-color: #fabf20; */
+  background-color: black;
+}
+
 .singup-page-container {
 }
 
@@ -14,14 +19,17 @@
   width: 15rem;
   border-radius: 0%;
   margin-left: 3rem;
-  background-color: transparent !important;
-  color: black !important;
-  border: 1px solid black !important;
+  background-color: transparent;
+  color: black;
+  border: 1px solid black;
   margin-top: -1.5rem;
+  padding: 0.5rem;
 }
 
 .shop-btn:hover {
-  background: #cd9a15 !important;
+  /* background: #cd9a15 !important; */
+  background-color: black;
+  color: #cd9a15;
 }
 
 .background-img {

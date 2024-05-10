@@ -20,20 +20,22 @@ const Signup = () => {
   };
 
   return (
-    <div className="singup-page-container">
-      <div className="background-img">
-        <h1 className="app-logo">Clothify</h1>
-        <Button className="shop-btn" onClick={showModal}>
-          SHOP NOW
-        </Button>
-        <Modal
-          open={isSignFormOpen}
-          onOk={handleOk}
-          onCancel={handleCancel}
-          footer={null}
-        >
-          <SignUpSignIn />
-        </Modal>
+    <div className="signup-wrapper">
+      <div className="singup-page-container">
+        <div className="background-img">
+          <h1 className="app-logo">Clothify</h1>
+          <button className="shop-btn" onClick={showModal}>
+            SHOP NOW
+          </button>
+          <Modal
+            open={isSignFormOpen}
+            onOk={handleOk}
+            onCancel={handleCancel}
+            footer={null}
+          >
+            <SignUpSignIn />
+          </Modal>
+        </div>
       </div>
     </div>
   );
