@@ -25,6 +25,10 @@
   font-size: 1.05rem;
 }
 
+.navlink:hover {
+  color: var(--orange-dark);
+}
+
 .log-out-icon {
   opacity: 0;
 }
@@ -41,6 +45,14 @@
   span {
     display: flex;
     align-items: center;
+  }
+}
+
+.confirm-logout-modal {
+  div:nth-child(3) {
+    button:nth-child(1) {
+      background-color: red !important;
+    }
   }
 }
 

@@ -1,5 +1,5 @@
 import { NavLink, useNavigate } from "react-router-dom";
-import { Row, Col, Button } from "antd";
+import { Row, Col, Button, Modal } from "antd";
 import {
   HeartOutlined,
   ShoppingOutlined,
@@ -15,11 +15,12 @@ import { auth } from "../firebase";
 import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import { reset } from "../slices/accountSlice";
-import ProfilePage from "../pages/ProfilePage";
+import { useState } from "react";
 
 const Header = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   async function handleSignOut() {
     try {
       await signOut(auth);
@@ -63,22 +64,53 @@ const Header = () => {
               <span>&nbsp;Profile</span>
             </span>
           </NavLink>
-          <Button className="sign-out-btn" onClick={handleSignOut}>
-            <span className="log-out-text">SignOut</span>
-            <LogoutOutlined className="log-out-icon" />
-          </Button>
+          <ConfirmLogout handleSignOut={handleSignOut} />
         </Col>
-        {/* <Col span={1}>
-          
-        </Col>
-        <Col span={1}>
-
-        </Col>
-        <Col span={2}>
- 
-        </Col> */}
       </Row>
     </div>
+  );
+};
+
+const ConfirmLogout = ({ handleSignOut }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleOk = () => {
+    setIsModalOpen(false);
+    handleSignOut();
+  };
+
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
+
+  return (
+    <>
+      <Button type="primary" className="sign-out-btn" onClick={showModal}>
+        <span className="log-out-text">SignOut</span>
+        <LogoutOutlined className="log-out-icon" />
+      </Button>
+      <Modal
+        className="confirm-logout-modal"
+        title="Confirm Logout"
+        open={isModalOpen}
+        onOk={handleOk}
+        onCancel={handleCancel}
+        footer={[
+          <Button danger onClick={handleCancel}>
+            Cancel
+          </Button>,
+          <Button type="primary" onClick={handleOk}>
+            OK
+          </Button>,
+        ]}
+      >
+        <p>Are you sure to log out</p>
+      </Modal>
+    </>
   );
 };
 
