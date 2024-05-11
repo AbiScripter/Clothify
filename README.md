@@ -1,10 +1,10 @@
 ## About This Project
 
-This project is a minimized React.js clone of the popular e-commerce platform Myntra. The primary goal was to recreate Myntra's user interface and to implement core e-commerce features like product listing, wishlist, product details, and cart functionality
+Clothify is a modern e-commerce platform built with React, Redux, React Router, and Ant Design, integrated with Firebase for secure authentication and data storage, providing a sleek and responsive shopping experience for fashion clothing across men's, women's, and kids' segments. The primary goal was to implement core e-commerce features like product listing, wishlist, product details, and cart functionality
 
 Built with React.js,Redux handles state management, React Router enables navigation, and Ant Design UI library provides a responsive user interface.
 
-This clone offers three main pages: the Home page, Wishlist page, and Cart page.
+This Project offers three main pages: the Home page, Wishlist page, and Cart page.
 
 The Home page showcases products categorized for men, women, and kids. The Wishlist page allows managing favorite items, while The Cart page implements key features like adding/removing items, setting delivery addresses, applying coupons and checkout summary.
 
