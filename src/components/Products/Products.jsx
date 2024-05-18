@@ -1,8 +1,7 @@
 import Product from "./Product";
+import React, { memo } from "react";
 
-export function MenProducts({ list }) {
-  console.log(list);
-
+const MenProducts = memo(function MenProducts({ list }) {
   return (
     <div className="products-wrapper">
       {list.map((item) => (
@@ -10,9 +9,9 @@ export function MenProducts({ list }) {
       ))}
     </div>
   );
-}
+});
 
-export function WomenProducts({ list }) {
+const WomenProducts = memo(function WomenProducts({ list }) {
   return (
     <div className="products-wrapper">
       {list.map((item) => (
@@ -20,9 +19,9 @@ export function WomenProducts({ list }) {
       ))}
     </div>
   );
-}
+});
 
-export function KidsProducts({ list }) {
+const KidsProducts = memo(function KidsProducts({ list }) {
   return (
     <div className="products-wrapper">
       {list.map((item) => (
@@ -30,4 +29,6 @@ export function KidsProducts({ list }) {
       ))}
     </div>
   );
-}
+});
+
+export { MenProducts, WomenProducts, KidsProducts };

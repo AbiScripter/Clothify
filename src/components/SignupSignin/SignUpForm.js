@@ -4,7 +4,7 @@ import { Button, Form, Input, Card } from "antd";
 import signUpUser from "../../utils/signUpUtils";
 import createDoc from "../../utils/createDocUtils";
 import { useSelector } from "react-redux";
-// import GoogleLoginForm from "./GoogleLoginForm";
+import GoogleLoginForm from "./GoogleLoginForm";
 
 const SignUpForm = ({ setIsSignInTab }) => {
   // const { setUserId } = useContext(UserContext);
@@ -112,9 +112,7 @@ const SignUpForm = ({ setIsSignInTab }) => {
               Login
             </span>
           </p>
-          {/* <h1 className="form-tag-text">Take charge of your money today!</h1> */}
-          {/* //! TODO: implement signup */}
-          {/* <GoogleLoginForm /> */}
+          <GoogleLoginForm />
         </Form>
       </Card>
     </>

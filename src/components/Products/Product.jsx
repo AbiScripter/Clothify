@@ -1,6 +1,6 @@
-import React, { memo } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fullHeart, emptyHeart } from "../asset/svgs";
+import { fullHeart, emptyHeart } from "../../asset/svgs";
 import { Button, Card, notification } from "antd";
 import { PlusOutlined, MinusOutlined } from "@ant-design/icons";
 import {
@@ -8,12 +8,12 @@ import {
   removeFromCart,
   addToWishlist,
   deleteFromWishList,
-} from "../slices/accountSlice";
+} from "../../slices/accountSlice";
 
 const Product = ({ data }) => {
   const dispatch = useDispatch();
   const currUser = useSelector((state) => state.user.user);
-  const currAccount = useSelector((state) => state.account);
+  // const currAccount = useSelector((state) => state.account);
   const cart = useSelector((state) => state.account.cart);
   const wishlist = useSelector((state) => state.account.wishlist);
 
@@ -92,8 +92,7 @@ const Product = ({ data }) => {
       <Card
         className="home-product-card"
         cover={
-          //memoize the image
-          <ImageComponent src={data.imageUrl} />
+          <img src={data.imageUrl} alt="product" />
           // <img src={data.imageUrl} alt="product" className="product-card" />
         }
       >
@@ -131,10 +130,5 @@ const Product = ({ data }) => {
     </div>
   );
 };
-
-//!memoizing image so it doesnot rerender every time
-const ImageComponent = memo(({ src }) => {
-  return <img src={src} alt="product" />;
-});
 
 export default Product;

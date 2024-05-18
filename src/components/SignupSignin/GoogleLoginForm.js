@@ -14,7 +14,7 @@ const GoogleLoginForm = () => {
     const googleData = await googleSignIn(setIsLoading);
     console.log(googleData);
     createDoc(googleData.user, googleData.user.displayName, account);
-    navigate("/");
+    navigate("/home");
   }
 
   return (

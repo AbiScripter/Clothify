@@ -5,7 +5,7 @@ import {
   MenProducts,
   WomenProducts,
   KidsProducts,
-} from "../components/Products";
+} from "../components/Products/Products";
 import "./HomePage.css";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Tabs } from "antd";
