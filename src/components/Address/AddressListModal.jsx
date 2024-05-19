@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Button, Modal, Card, Col, Row } from "antd";
 import AddressList from "./AddressList";
 import { useSelector } from "react-redux";
-import "../../pages/CartPage.css";
 import AddressFormModal from "./AddressFormModal";
 
 const AddressModal = () => {

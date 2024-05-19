@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-// import Header from "../components/Header";
 import SignUpSignIn from "../components/SignupSignin";
 import "./SignUp.css";
-import { Button, Modal } from "antd";
-// import imageFilename from "../asset/stock-photo-seasonal-sales-concept-happy-middle-eastern-family-of-three-jumping-with-shopping-bags-over-yellow-1994413244-transformed.jpeg";
+import { Modal } from "antd";
+
 const Signup = () => {
   const [isSignFormOpen, setIsSignFormOpen] = useState(false);
 

@@ -7,8 +7,6 @@ import {
   LogoutOutlined,
 } from "@ant-design/icons";
 import "./Header.css";
-// import logo from "../asset/myntra-logo.png";
-// import logo from "../asset/logo.png";
 import logo from "../asset/logoo.png";
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase";

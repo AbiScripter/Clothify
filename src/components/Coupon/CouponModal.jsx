@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Button, Modal, Row, Col } from "antd";
 import CouponForm from "./CouponForm";
-import "../../pages/CartPage.css";
 
 function stillValid(total, percent) {
   console.log(total, percent);

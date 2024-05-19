@@ -1,7 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import Header from "../Layout/Header";
-import AddressFormModal from "../components/Address/AddressFormModal";
 import AddressList from "../components/Address/AddressList";
 import "./ProfilePage.css";
 
@@ -19,7 +18,6 @@ const ProfilePage = () => {
           <p>{user.email}</p>
         </div>
         <AddressList />
-        {/* <AddressFormModal /> */}
       </div>
     </>
   );

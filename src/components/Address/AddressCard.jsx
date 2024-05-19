@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { Button, Popover, Flex } from "antd";
+import { Button, Popover } from "antd";
 import { deleteAddress, defaultAddress } from "../../slices/accountSlice";
 
 const AddressCard = ({

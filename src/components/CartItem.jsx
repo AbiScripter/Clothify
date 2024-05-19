@@ -2,7 +2,6 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Button, Card } from "antd";
 import { PlusOutlined, MinusOutlined } from "@ant-design/icons";
-import "../pages/CartPage.css";
 
 import {
   addToWishlist,

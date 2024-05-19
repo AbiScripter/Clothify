@@ -1,8 +1,8 @@
 import React from "react";
 import { Button, Col, Popover, Row } from "antd";
-import "../pages/CartPage.css";
 import { useSelector } from "react-redux";
 import useRazorpay from "react-razorpay";
+import logo from "../asset/logoo.png";
 
 const CheckoutSummary = ({ list, total, couponDiscountPercent }) => {
   const platformFee = 20;
@@ -78,9 +78,9 @@ function Razor({ finalTotal, AddressList, user }) {
       key: "rzp_test_yw82UVdqb63LLR",
       amount: `${finalTotal * 100}`,
       currency: "INR",
-      name: "LOOK VIBE",
+      name: "Clothify",
       description: "Bill",
-      // image: "/src/asset/myntra-logo.png",
+      image: <logo />,
       handler: function (response) {
         alert(response.razorpay_payment_id);
         alert(response.razorpay_order_id);
@@ -95,7 +95,7 @@ function Razor({ finalTotal, AddressList, user }) {
         address: "Razorpay Corporate Office",
       },
       theme: {
-        color: "#1677ff",
+        color: "#d26900",
       },
     };
 

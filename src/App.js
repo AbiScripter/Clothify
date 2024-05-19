@@ -10,7 +10,6 @@ import { setUser } from "./slices/userSlice";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import Signup from "./pages/Signup";
 import PrivateRoutes from "./components/PrivateRoutes";
 import SuspenseLoader from "./components/SuspenseLoader";
 
@@ -18,11 +17,14 @@ import SuspenseLoader from "./components/SuspenseLoader";
 // import WishlistPage from "./pages/WishListPage";
 // import CartPage from "./pages/CartPage";
 // import ProfilePage from "./pages/ProfilePage";
+// import Signup from "./pages/Signup";
+
 //!code splitting
 const HomePage = lazy(() => import("./pages/HomePage"));
 const WishlistPage = lazy(() => import("./pages/WishListPage"));
 const CartPage = lazy(() => import("./pages/CartPage"));
 const ProfilePage = lazy(() => import("./pages/ProfilePage"));
+const Signup = lazy(() => import("./pages/Signup"));
 
 function App() {
   const dispatch = useDispatch();
