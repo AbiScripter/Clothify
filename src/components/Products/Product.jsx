@@ -31,7 +31,7 @@ const Product = ({ data }) => {
   const isWishlisted = getIsProductWishlisted(data.id);
 
   // const imageUrl = `${window.location.origin}/${data.imageUrl}`;
-  console.log(currUser);
+  // console.log(currUser);
 
   const handleCartAdd = (item) => {
     // dispatch(addToCart(item));

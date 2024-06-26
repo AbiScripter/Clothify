@@ -3,13 +3,12 @@ import { Button, Form, Input } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import { addAddress } from "../../slices/accountSlice";
 
-const AddressForm = ({ setIsAddressFormModalOpen }) => {
-  const [form] = Form.useForm(); //for form resetting
+const AddAddressForm = ({ setIsAddressFormModalOpen }) => {
+  const [form] = Form.useForm(); //for form resetting ANTD only
   const currUser = useSelector((state) => state.user.user);
   const dispatch = useDispatch();
 
   const handleFormSubmit = (data) => {
-    // dispatch(addAddress(data));
     dispatch(
       addAddress({
         data: data,
@@ -28,19 +27,10 @@ const AddressForm = ({ setIsAddressFormModalOpen }) => {
       variant="filled"
       style={{ maxWidth: 600 }}
       onFinish={handleFormSubmit}
-      initialValues={{
-        name: "abilash",
-        mobile: "7788888322",
-        pincode: "999999",
-        address: "19 2nd croos road",
-        city: "banglore",
-        state: "karnataka",
-        id: "5siyss01",
-      }}
     >
       <h3>Contact Details</h3>
       <Form.Item
-        label="Input"
+        label="Name"
         name="name"
         rules={[{ required: true, message: "Name*" }]}
       >
@@ -94,4 +84,4 @@ const AddressForm = ({ setIsAddressFormModalOpen }) => {
   );
 };
 
-export default AddressForm;
+export default AddAddressForm;

@@ -1,22 +1,18 @@
 import React, { useState } from "react";
-import CartItem from "../components/CartItem";
+import CartItem from "../components/Cart/CartItem";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { Button } from "antd";
-import CheckoutSummary from "../components/Checkout";
-import AddressModal from "../components/Address/AddressListModal";
+import CheckoutSummary from "../components/Cart/Checkout";
 import CouponModal from "../components/Coupon/CouponModal";
 import emptybag from "../asset/empty-bag.webp";
 import "./CartPage.css";
 import Header from "../Layout/Header";
+import Address from "../components/Address/Address";
 
 const CartPage = () => {
-  console.log("ommala");
   let [couponDiscountPercent, setCouponDiscountPercent] = useState(0);
   const list = useSelector((state) => state.account.cart);
-  console.log(list);
-  // const valueList = Object.values(list);
-  // console.log(list);
 
   if (list.length === 0) {
     return (
@@ -39,8 +35,9 @@ const CartPage = () => {
       <Header />
       <div className="cart_page">
         <div className="cart_page_left">
-          <AddressModal />
+          <Address />
 
+          {/*//! cart list */}
           <div className="cart-product-list">
             {list.map((item) => {
               return <CartItem item={item} key={item.id} />;

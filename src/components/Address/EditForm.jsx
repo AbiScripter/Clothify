@@ -1,18 +1,38 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Button, Form, Input } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import { editAddress } from "../../slices/accountSlice";
 
 const EditForm = ({ setIsEditFormModalOpen, editId }) => {
+  console.log(editId);
   const addressList = useSelector((state) => state.account.addressList);
   const currUser = useSelector((state) => state.user.user);
-  const formPrefill = addressList[editId];
+  console.log(currUser);
+  console.log(addressList);
+
   const [form] = Form.useForm(); //for form resetting
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    // Fetch the address that matches the editformId
+    const formPrefill = addressList.find((address) => address.id === editId);
+
+    // Update form fields if formPrefill exists
+    if (formPrefill) {
+      form.setFieldsValue({
+        name: formPrefill.name,
+        mobile: formPrefill.mobile,
+        pincode: formPrefill.pincode,
+        address: formPrefill.address,
+        city: formPrefill.city,
+        state: formPrefill.state,
+      });
+    }
+  }, [editId, addressList, form]);
+
   const handleFormUpdate = (editedData) => {
     console.log("editttedData", editedData);
-
+    console.log(currUser);
     dispatch(
       editAddress({
         editedData: editedData,
@@ -22,7 +42,6 @@ const EditForm = ({ setIsEditFormModalOpen, editId }) => {
       })
     );
 
-    form.resetFields(); //reset the form
     setIsEditFormModalOpen((isModalOpen) => !isModalOpen); //close the form modal after submitting
   };
 
@@ -32,12 +51,10 @@ const EditForm = ({ setIsEditFormModalOpen, editId }) => {
       variant="filled"
       style={{ maxWidth: 600 }}
       onFinish={handleFormUpdate}
-      initialValues={{ ...formPrefill }}
-      // initialValues={initalValues}
     >
       <h3>Contact Details</h3>
       <Form.Item
-        label="Input"
+        label="Name"
         name="name"
         rules={[{ required: true, message: "Name*" }]}
       >
@@ -83,13 +100,6 @@ const EditForm = ({ setIsEditFormModalOpen, editId }) => {
       >
         <Input />
       </Form.Item>
-      {/* <Form.Item
-        label={editId}
-        name="id"
-        rules={[{ required: true, message: "editId*" }]}
-      >
-        <Input />
-      </Form.Item> */}
       <Button type="primary" block htmlType="submit">
         UPDATE ADDRESS
       </Button>

@@ -2,14 +2,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { Button, Popover } from "antd";
 import { deleteAddress, defaultAddress } from "../../slices/accountSlice";
 
-const AddressCard = ({
-  address,
-  isEditFormModalOpen,
-  setIsEditFormModalOpen,
-  setEditId,
-}) => {
+const AddressCard = ({ address, setIsEditFormModalOpen, setEditId }) => {
   const dispatch = useDispatch();
   const currUser = useSelector((state) => state.user.user);
+
   const handleDelete = () => {
     dispatch(
       deleteAddress({
@@ -26,7 +22,6 @@ const AddressCard = ({
   };
 
   const handleDelivery = () => {
-    // dispatch(defaultAddress(address.id));
     dispatch(
       defaultAddress({
         data: address.id,

@@ -38,7 +38,7 @@ const Header = () => {
           <NavLink to="/home" className="navlink">
             <div className="logo-container">
               <img src={logo} alt="logo" className="logo" />
-              <span>Clothify</span>
+              <p className="logo-text">Clothify</p>
             </div>
           </NavLink>
         </Col>

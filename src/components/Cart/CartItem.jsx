@@ -8,49 +8,13 @@ import {
   addToCart,
   deleteFromCart,
   removeFromCart,
-} from "../slices/accountSlice";
+} from "../../slices/accountSlice";
 
 const CartItem = ({ item }) => {
   const dispatch = useDispatch();
   const currUser = useSelector((state) => state.user.user);
 
-  const handleMovingToWishlist = (item) => {
-    //first add to wishlist
-    // dispatch(addToWishlist(item));
-
-    dispatch(
-      addToWishlist({
-        data: item,
-        userId: currUser.uid,
-        dataId: currUser.dataId,
-      })
-    );
-
-    //delete item from the cart
-    // dispatch(deleteFromCart(item));
-
-    dispatch(
-      deleteFromCart({
-        data: item,
-        userId: currUser.uid,
-        dataId: currUser.dataId,
-      })
-    );
-  };
-
-  const handleCartDelete = (item) => {
-    // dispatch(deleteFromCart(item));
-    dispatch(
-      deleteFromCart({
-        data: item,
-        userId: currUser.uid,
-        dataId: currUser.dataId,
-      })
-    );
-  };
-
   const handleCartAdd = (item) => {
-    // dispatch(addToCart(item));
     dispatch(
       addToCart({
         data: item,
@@ -60,28 +24,44 @@ const CartItem = ({ item }) => {
     );
   };
 
-  const handleCartSub = (item) => {
-    console.log("sub", item.quantity);
-    //if its the last item
-    if (item.quantity === 1) {
-      // dispatch(deleteFromCart(item));
-      dispatch(
-        deleteFromCart({
-          data: item,
-          userId: currUser.uid,
-          dataId: currUser.dataId,
-        })
-      );
-      return;
-    }
-    // dispatch(removeFromCart(item));
+  const handleCartDelete = (item) => {
     dispatch(
-      removeFromCart({
+      deleteFromCart({
         data: item,
         userId: currUser.uid,
         dataId: currUser.dataId,
       })
     );
+  };
+
+  const handleMovingToWishlist = (item) => {
+    //add to wishlist
+    dispatch(
+      addToWishlist({
+        data: item,
+        userId: currUser.uid,
+        dataId: currUser.dataId,
+      })
+    );
+
+    //delete item from the cart
+    handleCartDelete(item);
+  };
+
+  const handleCartSub = (item) => {
+    console.log("sub", item.quantity);
+    //if its the last item delete it from cart , else subtract by 1
+    if (item.quantity === 1) {
+      handleCartDelete(item);
+    } else {
+      dispatch(
+        removeFromCart({
+          data: item,
+          userId: currUser.uid,
+          dataId: currUser.dataId,
+        })
+      );
+    }
   };
 
   return (

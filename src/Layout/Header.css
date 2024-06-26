@@ -3,13 +3,13 @@
   padding: 1rem;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
+
 .logo-container {
   display: flex;
   margin-left: 0.5rem;
-
   flex-direction: column;
 
-  span {
+  p {
     margin-top: -0.8rem;
     margin-left: -0.5rem;
     font-family: "Ultra", serif;
@@ -21,19 +21,12 @@
   margin-top: -0.5rem;
 }
 
-.navlink span {
-  font-size: 1.05rem;
-}
-
 .navlink:hover {
   color: var(--orange-dark);
 }
 
 .log-out-icon {
   opacity: 0;
-}
-
-.left {
 }
 
 .right {
@@ -59,11 +52,22 @@
 @media (width<576px) {
   .right {
     gap: 1rem;
+    justify-content: end;
   }
 
   .link-span {
     span:nth-child(2) {
       display: none;
+    }
+  }
+
+  .logo-container {
+    img {
+      display: none;
+    }
+
+    p {
+      margin: 0;
     }
   }
 

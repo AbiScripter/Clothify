@@ -1,23 +1,18 @@
 import React from "react";
 import "./WishListPage.css";
 import { useDispatch, useSelector } from "react-redux";
-import { Button, Card, Flex } from "antd";
+import { Button, Card } from "antd";
 import emptyWishlist from "../asset/empty-wishlist.png";
 import { NavLink } from "react-router-dom";
 import Header from "../Layout/Header";
-import {
-  addToWishlist,
-  deleteFromWishList,
-  addToCart,
-} from "../slices/accountSlice";
+import { deleteFromWishList, addToCart } from "../slices/accountSlice";
 
 const WishlistPage = () => {
   const dispatch = useDispatch();
   const list = useSelector((state) => state.account.wishlist);
   const currUser = useSelector((state) => state.user.user);
-  console.log(currUser);
-  console.log(list);
 
+  //if there is no wishlist products
   if (list.length === 0) {
     return (
       <>
@@ -28,8 +23,6 @@ const WishlistPage = () => {
   }
 
   const handleDeleteWishlist = (item) => {
-    console.log(item);
-    // dispatch(deleteFromWishList(item));
     dispatch(
       deleteFromWishList({
         data: item,
@@ -40,8 +33,6 @@ const WishlistPage = () => {
   };
 
   const handleMovingToCart = (item) => {
-    console.log(item);
-    // dispatch(deleteFromWishList(item));
     dispatch(
       deleteFromWishList({
         data: item,
@@ -50,7 +41,6 @@ const WishlistPage = () => {
       })
     );
 
-    // dispatch(addToCart(item));
     dispatch(
       addToCart({ data: item, userId: currUser.uid, dataId: currUser.dataId })
     );
@@ -60,29 +50,42 @@ const WishlistPage = () => {
     <>
       <Header />
       <div className="wishlist_container">
-        {list.map((item) => {
-          return (
-            <div className="wishlist_product" key={item.id}>
-              <Card cover={<img src={item.imageUrl} alt="product" />}>
-                <p>
-                  <span>{item.name}</span>
-                  <br />
-                  <span> Rs. {item.price}</span>
-                </p>
-                <div className="wishlist_product-btns">
-                  <Button onClick={() => handleMovingToCart(item)}>
-                    MOVE TO BAG
-                  </Button>
-                  <Button danger onClick={() => handleDeleteWishlist(item)}>
-                    REMOVE
-                  </Button>
-                </div>
-              </Card>
-            </div>
-          );
-        })}
+        {list.map((product) => (
+          <WishlistProduct
+            product={product}
+            key={product.id}
+            handleDeleteWishlist={handleDeleteWishlist}
+            handleMovingToCart={handleMovingToCart}
+          />
+        ))}
       </div>
     </>
+  );
+};
+
+const WishlistProduct = ({
+  product,
+  handleDeleteWishlist,
+  handleMovingToCart,
+}) => {
+  return (
+    <div className="wishlist_product">
+      <Card cover={<img src={product.imageUrl} alt="product" />}>
+        <p>
+          <span>{product.name}</span>
+          <br />
+          <span> Rs. {product.price}</span>
+        </p>
+        <div className="wishlist_product-btns">
+          <Button onClick={() => handleMovingToCart(product)}>
+            MOVE TO BAG
+          </Button>
+          <Button danger onClick={() => handleDeleteWishlist(product)}>
+            REMOVE
+          </Button>
+        </div>
+      </Card>
+    </div>
   );
 };
 

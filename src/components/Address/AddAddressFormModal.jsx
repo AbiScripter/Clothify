@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Button, Modal } from "antd";
-import AddressForm from "./AddressForm";
+import AddAddressForm from "./AddAddressForm";
 
-const AddressFormModal = () => {
+const AddAddressFormModal = () => {
   const [isAddressFormModalOpen, setIsAddressFormModalOpen] = useState(false);
 
   const showModal = () => {
@@ -29,10 +29,10 @@ const AddressFormModal = () => {
         onCancel={handleCancel}
         footer={null}
       >
-        <AddressForm setIsAddressFormModalOpen={setIsAddressFormModalOpen} />
+        <AddAddressForm setIsAddressFormModalOpen={setIsAddressFormModalOpen} />
       </Modal>
     </>
   );
 };
 
-export default AddressFormModal;
+export default AddAddressFormModal;

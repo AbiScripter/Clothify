@@ -39,6 +39,7 @@ const accountSlice = createSlice({
       updateUserData(state, action.payload.userId, action.payload.dataId);
     },
 
+    //subtract from cart by 1
     removeFromCart: (state, action) => {
       const productIndex = state.cart.findIndex(
         (product) => product.id === action.payload.data.id
@@ -56,6 +57,7 @@ const accountSlice = createSlice({
       updateUserData(state, action.payload.userId, action.payload.dataId);
     },
 
+    //delete from cart entirely
     deleteFromCart: (state, action) => {
       state.cart = state.cart.filter(
         (product) => product.id !== action.payload.data.id
@@ -86,7 +88,7 @@ const accountSlice = createSlice({
       state.addressList.push({
         ...addressToBeAdded,
         id: generateRandomId(),
-        isDefault: state.addressList.length === 0 ? true : false, //for the first address which is to add set that to be default address
+        isDefault: state.addressList.length === 0 ? true : false, //the first address which is added will be the default address , so set that to be default address
       });
       updateUserData(state, action.payload.userId, action.payload.dataId);
     },
@@ -101,6 +103,7 @@ const accountSlice = createSlice({
 
     editAddress: (state, action) => {
       const { editedData, id: oldAddressId } = action.payload;
+      console.log(action);
       const addressIndex = state.addressList.findIndex(
         (address) => address.id === oldAddressId
       );
@@ -127,12 +130,9 @@ const accountSlice = createSlice({
       updateUserData(state, action.payload.userId, action.payload.dataId);
     },
 
-    initiateStateLogin: (state, action) => {
-      if (action.payload !== undefined) {
-        console.log("from redux state", action.payload);
-        return action.payload;
-      }
-      return state;
+    initiateUserData: (state, action) => {
+      // console.log("from redux state", action.payload);
+      return action.payload;
     },
 
     reset: () => initialState,
@@ -153,7 +153,7 @@ export const {
   deleteAddress,
   editAddress,
   defaultAddress,
-  initiateStateLogin,
+  initiateUserData,
   reset,
 } = accountSlice.actions;
 export default accountSlice.reducer;

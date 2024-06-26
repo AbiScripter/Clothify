@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import AddressCard from "./AddressCard";
 
-import AddressFormModal from "./AddressFormModal";
+import AddAddressFormModal from "./AddAddressFormModal";
 import EditFormModal from "./EditFormModal";
 
 const AddressList = () => {
@@ -24,8 +24,9 @@ const AddressList = () => {
           />
         );
       })}
-      {/* opens the address form when add address button clicked */}
-      <AddressFormModal />
+      {/* opens the address form when ADD NEW ADDRESS button clicked */}
+
+      <AddAddressFormModal />
       <EditFormModal
         isEditFormModalOpen={isEditFormModalOpen}
         setIsEditFormModalOpen={setIsEditFormModalOpen}

@@ -2,7 +2,6 @@ import React from "react";
 import { Button, Col, Popover, Row } from "antd";
 import { useSelector } from "react-redux";
 import useRazorpay from "react-razorpay";
-import logo from "../asset/logoo.png";
 
 const CheckoutSummary = ({ list, total, couponDiscountPercent }) => {
   const platformFee = 20;

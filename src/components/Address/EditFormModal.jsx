@@ -7,10 +7,6 @@ const EditFormModal = ({
   setIsEditFormModalOpen,
   editId,
 }) => {
-  // const showModal = () => {
-  //   setIsEditFormModalOpen(true);
-  // };
-
   const handleOk = () => {
     setIsEditFormModalOpen(false);
   };
@@ -21,10 +17,6 @@ const EditFormModal = ({
 
   return (
     <div>
-      {/* <Button type="primary" onClick={showModal}>
-        Edit
-      </Button> */}
-      {/* <Button>{userId}</Button> */}
       <Modal
         title="Edit Address"
         open={isEditFormModalOpen}
@@ -35,8 +27,6 @@ const EditFormModal = ({
         <EditForm
           setIsEditFormModalOpen={setIsEditFormModalOpen}
           editId={editId}
-          // initalValues={initialValues}
-          // userId={userId}
         />
       </Modal>
     </div>

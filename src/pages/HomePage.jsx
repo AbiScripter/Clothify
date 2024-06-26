@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { auth, db } from "../firebase";
+import { db } from "../firebase";
 import { collection, getDocs, onSnapshot, query } from "firebase/firestore";
 import {
   MenProducts,
@@ -7,42 +7,48 @@ import {
   KidsProducts,
 } from "../components/Products/Products";
 import "./HomePage.css";
-import { useAuthState } from "react-firebase-hooks/auth";
+// import { useAuthState } from "react-firebase-hooks/auth";
 import { Tabs } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import Header from "../Layout/Header";
-import { initiateStateLogin } from "../slices/accountSlice";
-import { setUser } from "../slices/userSlice";
+import { initiateStateLogin, initiateUserData } from "../slices/accountSlice";
+import { initiateUser } from "../slices/userSlice";
 
 const HomePage = () => {
-  const [user, loading] = useAuthState(auth);
+  //!have to know the difference between user and currUser
+  // const [user, loading] = useAuthState(auth);
   // const currAccount = useSelector((state) => state.account);
   const currUser = useSelector((state) => state.user.user);
-
   const dispatch = useDispatch();
-  const [data, setData] = useState([]);
+  const [productsData, setProductsData] = useState([]);
   // const accountCartData = useSelector((state) => state.account.cart);
   // console.log(accountCartData);
 
-  //fetch products data
+  //!fetch default products data
   useEffect(() => {
     const fetchData = async () => {
-      const querySnapshot = await getDocs(collection(db, "products"));
-      const temp = [];
-      querySnapshot.forEach((doc) => {
-        // doc.data() is never undefined for query doc snapshots
-        temp.push({ id: doc.id, ...doc.data() });
-      });
-      setData(temp);
+      try {
+        const productsCollectionRef = collection(db, "products");
+        const querySnapshot = await getDocs(productsCollectionRef);
+        const temp = [];
+        querySnapshot.forEach((doc) => {
+          // doc.data() is never undefined for query doc snapshots
+          temp.push({ id: doc.id, ...doc.data() });
+        });
+        setProductsData(temp);
+      } catch (error) {
+        console.log(error.message);
+      }
     };
     fetchData();
   }, []);
-  // console.log(data);
 
-  const menProducts = data.filter((pro) => pro.category === "m");
-  const womenProducts = data.filter((pro) => pro.category === "w");
-  const kidsProducts = data.filter((pro) => pro.category === "k");
+  const menProducts = productsData.filter((pro) => pro.category === "m");
+  const womenProducts = productsData.filter((pro) => pro.category === "w");
+  const kidsProducts = productsData.filter((pro) => pro.category === "k");
 
+  //!products
+  //!for ANTD TABS
   const items = [
     {
       key: "1",
@@ -61,41 +67,48 @@ const HomePage = () => {
     },
   ];
 
-  //!fetching user transaction data
-
-  //!  method using onsnapshot
+  //!fetching user data(wishlit,cart etc)
+  //!  method using onsnapshot(real time data fetching)
   useEffect(() => {
-    let idIfAvailable = "";
-    // console.log(user);
-    // console.log(currUser);
+    const userId = currUser?.uid;
 
-    if (currUser) {
-      idIfAvailable = currUser.uid;
-    } else {
-      idIfAvailable = user.uid;
+    if (!userId) {
+      console.warn("No user ID available to fetch data.");
+      return;
     }
-    // console.log(idIfAvailable);
+
+    // Query the user's data collection
+    const userCollectionRef = collection(db, `users/${userId}/userdata`);
+
     const unsubscribe = onSnapshot(
-      query(collection(db, `users/${idIfAvailable}/userdata`)),
+      userCollectionRef,
       (querySnapshot) => {
-        const temp = [];
+        const userData = [];
         querySnapshot.forEach((doc) => {
-          temp.push({ id: doc.id, ...doc.data() });
+          userData.push({ id: doc.id, ...doc.data() });
         });
-        // console.log(temp);
-        // console.log("yes", temp[0]?.id);
-        dispatch(initiateStateLogin(temp[0]));
-        dispatch(setUser({ ...currUser, dataId: temp[0]?.id }));
+
+        //we are getting data from collection so that will be an array, so getting the first index will be the user data
+        //  dispatch actions with the first item
+        const firstUserData = userData[0];
+        // console.log(firstUserData);
+        if (firstUserData) {
+          dispatch(initiateUserData(firstUserData));
+          dispatch(initiateUser({ ...currUser, dataId: firstUserData.id }));
+        } else {
+          console.warn("No user data found in the collection.");
+        }
       },
       (error) => {
-        console.error("Error fetching userData:", error);
+        console.error("Error fetching user data:", error);
       }
     );
 
     return () => {
       unsubscribe();
     };
-  }, [currUser?.uid]);
+  }, [currUser?.uid, dispatch]);
+
   return (
     <>
       <Header />
