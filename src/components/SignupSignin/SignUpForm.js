@@ -25,8 +25,6 @@ const SignUpForm = ({ setIsSignInTab }) => {
       createDoc(user, data.username, account);
       navigate("/home");
     }
-
-    // form.resetFields(); //reset the form
   }
 
   return (

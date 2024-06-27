@@ -12,9 +12,11 @@ const GoogleLoginForm = () => {
 
   async function handleGoogleSignIn() {
     const googleData = await googleSignIn(setIsLoading);
-    console.log(googleData);
-    createDoc(googleData.user, googleData.user.displayName, account);
-    navigate("/home");
+    if (googleData) {
+      console.log(googleData);
+      createDoc(googleData.user, googleData.user.displayName, account);
+      navigate("/home");
+    }
   }
 
   return (

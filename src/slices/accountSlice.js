@@ -4,18 +4,7 @@ import updateUserData from "../utils/updateUserData";
 const initialState = {
   cart: [],
   wishlist: [],
-  addressList: [
-    // {
-    //   name: "Abilash",
-    //   mobile: "9178912120",
-    //   pincode: "682016",
-    //   address: "12th cross , MG Road",
-    //   city: "Kochi",
-    //   state: "Kerala",
-    //   id: "2cyuouag",
-    //   isDefault: true,
-    // },
-  ],
+  addressList: [],
 };
 
 const accountSlice = createSlice({
