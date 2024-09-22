@@ -47,6 +47,8 @@
 
 .sign-out-btn {
   text-align: center;
+  display: flex;
+  align-items: center;
 }
 
 .confirm-logout-modal {

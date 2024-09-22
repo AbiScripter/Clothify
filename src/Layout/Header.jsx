@@ -34,7 +34,7 @@ const Header = () => {
   return (
     <div>
       <Row className="nav" align="middle">
-        <Col xs={12} sm={6} md={10} lg={12} className="left">
+        <Col xs={12} sm={6} md={10} lg={12} xl={16} className="left">
           <NavLink to="/home" className="navlink">
             <div className="logo-container">
               <img src={logo} alt="logo" className="logo" />
@@ -43,7 +43,7 @@ const Header = () => {
           </NavLink>
         </Col>
 
-        <Col xs={12} sm={18} md={14} lg={12} className="right">
+        <Col xs={12} sm={18} md={14} lg={12} xl={8} className="right">
           <NavLink to="/wishlist" className="navlink">
             <span className="link-span">
               <HeartOutlined />
