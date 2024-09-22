@@ -20,11 +20,11 @@ const userSlice = createSlice({
     },
 
     clearUser: (state) => {
-      state.user = initialState;
+      state.user = initialState.user;
     },
 
     reset: (state) => {
-      state.user = initialState;
+      state.user = initialState.user;
     },
 
     //!Cart Reducers

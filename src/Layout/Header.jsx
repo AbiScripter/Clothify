@@ -98,10 +98,10 @@ const ConfirmLogout = ({ handleSignOut }) => {
         onOk={handleOk}
         onCancel={handleCancel}
         footer={[
-          <Button danger onClick={handleCancel}>
+          <Button key="cancel" danger onClick={handleCancel}>
             Cancel
           </Button>,
-          <Button type="primary" onClick={handleOk}>
+          <Button key="ok" type="primary" onClick={handleOk}>
             OK
           </Button>,
         ]}

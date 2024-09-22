@@ -13,6 +13,7 @@ import Address from "../components/Address/Address";
 const CartPage = () => {
   let [couponDiscountPercent, setCouponDiscountPercent] = useState(0);
   const cartList = useSelector((state) => state.user.user.cart);
+  console.log(cartList);
 
   if (cartList.length === 0) {
     return (
