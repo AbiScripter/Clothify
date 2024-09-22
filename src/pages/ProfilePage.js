@@ -6,9 +6,7 @@ import "./ProfilePage.css";
 
 const ProfilePage = () => {
   const user = useSelector((state) => state.user.user);
-  const userAccount = useSelector((state) => state.account);
-  console.log(user);
-  console.log(userAccount);
+
   return (
     <>
       <Header />

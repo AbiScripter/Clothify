@@ -12,6 +12,7 @@ const GoogleLoginForm = () => {
 
   async function handleGoogleSignIn() {
     const googleData = await googleSignIn(setIsLoading);
+    //if the received data is not null
     if (googleData) {
       console.log(googleData);
       createDoc(googleData.user, googleData.user.displayName, account);

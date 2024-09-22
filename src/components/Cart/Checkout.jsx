@@ -3,13 +3,14 @@ import { Button, Col, Popover, Row } from "antd";
 import { useSelector } from "react-redux";
 import useRazorpay from "react-razorpay";
 
-const CheckoutSummary = ({ list, total, couponDiscountPercent }) => {
+const CheckoutSummary = ({ total, couponDiscountPercent }) => {
+  const user = useSelector((state) => state.user.user);
+  const AddressList = user.addressList;
+
   const platformFee = 20;
   let shippingCost = 0;
   let finalTotal = 0;
   const couponDiscount = Math.floor((couponDiscountPercent / 100) * total);
-  const AddressList = useSelector((state) => state.account.addressList);
-  const currUser = useSelector((state) => state.user.user);
 
   const isShippingFree = Boolean(total > 1000);
 
@@ -58,11 +59,7 @@ const CheckoutSummary = ({ list, total, couponDiscountPercent }) => {
         <Col span={12}>₹{finalTotal}</Col>
       </Row>
 
-      <Razor
-        finalTotal={finalTotal}
-        AddressList={AddressList}
-        user={currUser}
-      />
+      <Razor finalTotal={finalTotal} AddressList={AddressList} user={user} />
     </div>
   );
 };

@@ -7,8 +7,7 @@ import { useSelector } from "react-redux";
 import GoogleLoginForm from "./GoogleLoginForm";
 
 const SignUpForm = ({ setIsSignInTab }) => {
-  // const { setUserId } = useContext(UserContext);
-  const account = useSelector((state) => state.account);
+  const user = useSelector((state) => state.user.user);
   const [form] = Form.useForm();
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
@@ -16,13 +15,12 @@ const SignUpForm = ({ setIsSignInTab }) => {
   // const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
   async function handleFormSubmit(data) {
-    const user = await signUpUser(data, setIsLoading);
-    console.log(user);
+    const singupData = await signUpUser(data, setIsLoading);
 
     //if signin succes it return userdata
     //if signin fails it returns null
-    if (user !== null) {
-      createDoc(user, data.username, account);
+    if (singupData !== null) {
+      createDoc(singupData, data.username, user);
       navigate("/home");
     }
   }

@@ -1,21 +1,14 @@
 import React from "react";
 import { Button, Form, Input } from "antd";
-import { useDispatch, useSelector } from "react-redux";
-import { addAddress } from "../../slices/accountSlice";
+import { useDispatch } from "react-redux";
+import { addAddress } from "../../slices/userSlice";
 
 const AddAddressForm = ({ setIsAddressFormModalOpen }) => {
   const [form] = Form.useForm(); //for form resetting ANTD only
-  const currUser = useSelector((state) => state.user.user);
   const dispatch = useDispatch();
 
-  const handleFormSubmit = (data) => {
-    dispatch(
-      addAddress({
-        data: data,
-        userId: currUser.uid,
-        dataId: currUser.dataId,
-      })
-    );
+  const handleFormSubmit = (addressData) => {
+    dispatch(addAddress(addressData));
 
     form.resetFields(); //reset the form
     setIsAddressFormModalOpen((isModalOpen) => !isModalOpen); //close the form modal after submitting

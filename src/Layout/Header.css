@@ -18,15 +18,15 @@
 
 .logo {
   max-width: 3.5rem;
-  margin-top: -0.5rem;
+  /* margin-top: -0.5rem; */
+}
+
+.logo-text {
+  font-size: 1.1rem;
 }
 
 .navlink:hover {
   color: var(--orange-dark);
-}
-
-.log-out-icon {
-  opacity: 0;
 }
 
 .right {
@@ -39,6 +39,14 @@
     display: flex;
     align-items: center;
   }
+
+  span {
+    font-size: 1rem;
+  }
+}
+
+.sign-out-btn {
+  text-align: center;
 }
 
 .confirm-logout-modal {

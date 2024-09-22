@@ -6,8 +6,7 @@ import AddAddressFormModal from "./AddAddressFormModal";
 
 const Address = () => {
   const [isAddressListModalOpen, setIsAddressListModalOpen] = useState(false);
-  // Find the address marked as default
-  const addressList = useSelector((state) => state.account.addressList);
+  const addressList = useSelector((state) => state.user.user.addressList);
   let defaultAddress = null;
 
   //if there is no addresss added
@@ -21,6 +20,7 @@ const Address = () => {
     );
   }
 
+  // Find the address marked as default
   addressList.forEach((address) => {
     if (address.isDefault) {
       defaultAddress = address;

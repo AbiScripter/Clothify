@@ -1,5 +1,5 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Button, Card } from "antd";
 import { PlusOutlined, MinusOutlined } from "@ant-design/icons";
 
@@ -8,59 +8,33 @@ import {
   addToCart,
   deleteFromCart,
   removeFromCart,
-} from "../../slices/accountSlice";
+} from "../../slices/userSlice";
 
 const CartItem = ({ item }) => {
   const dispatch = useDispatch();
-  const currUser = useSelector((state) => state.user.user);
 
   const handleCartAdd = (item) => {
-    dispatch(
-      addToCart({
-        data: item,
-        userId: currUser.uid,
-        dataId: currUser.dataId,
-      })
-    );
+    dispatch(addToCart(item));
   };
 
   const handleCartDelete = (item) => {
-    dispatch(
-      deleteFromCart({
-        data: item,
-        userId: currUser.uid,
-        dataId: currUser.dataId,
-      })
-    );
+    dispatch(deleteFromCart(item));
   };
 
   const handleMovingToWishlist = (item) => {
     //add to wishlist
-    dispatch(
-      addToWishlist({
-        data: item,
-        userId: currUser.uid,
-        dataId: currUser.dataId,
-      })
-    );
+    dispatch(addToWishlist(item));
 
     //delete item from the cart
     handleCartDelete(item);
   };
 
   const handleCartSub = (item) => {
-    console.log("sub", item.quantity);
     //if its the last item delete it from cart , else subtract by 1
     if (item.quantity === 1) {
       handleCartDelete(item);
     } else {
-      dispatch(
-        removeFromCart({
-          data: item,
-          userId: currUser.uid,
-          dataId: currUser.dataId,
-        })
-      );
+      dispatch(removeFromCart(item));
     }
   };
 

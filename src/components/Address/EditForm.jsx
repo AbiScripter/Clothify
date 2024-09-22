@@ -1,14 +1,11 @@
 import React, { useEffect } from "react";
 import { Button, Form, Input } from "antd";
 import { useDispatch, useSelector } from "react-redux";
-import { editAddress } from "../../slices/accountSlice";
+import { editAddress } from "../../slices/userSlice";
 
 const EditForm = ({ setIsEditFormModalOpen, editId }) => {
   console.log(editId);
-  const addressList = useSelector((state) => state.account.addressList);
-  const currUser = useSelector((state) => state.user.user);
-  console.log(currUser);
-  console.log(addressList);
+  const addressList = useSelector((state) => state.user.user.addressList);
 
   const [form] = Form.useForm(); //for form resetting
   const dispatch = useDispatch();
@@ -31,14 +28,12 @@ const EditForm = ({ setIsEditFormModalOpen, editId }) => {
   }, [editId, addressList, form]);
 
   const handleFormUpdate = (editedData) => {
-    console.log("editttedData", editedData);
-    console.log(currUser);
+    // console.log("editttedData", editedData);
+    // console.log(user);
     dispatch(
       editAddress({
         editedData: editedData,
         id: editId,
-        userId: currUser.uid,
-        dataId: currUser.dataId,
       })
     );
 

@@ -6,7 +6,7 @@ async function signInUser(data, setIsLoading) {
   setIsLoading(true);
   try {
     const user = await signin(data.email, data.password);
-    toast.success("Singed In Sucessfully");
+    toast.success("Signed In Sucessfully");
     return user;
   } catch (error) {
     toast.error(error.message);

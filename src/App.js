@@ -1,6 +1,6 @@
 import "./App.css";
 import { lazy, useEffect, Suspense } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { onAuthStateChanged } from "firebase/auth";
@@ -10,7 +10,7 @@ import { initiateUser } from "./slices/userSlice";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import PrivateRoutes from "./components/PrivateRoutes";
+// import PrivateRoutes from "./components/PrivateRoutes";
 import SuspenseLoader from "./components/SuspenseLoader";
 
 // import HomePage from "./pages/HomePage";
@@ -18,6 +18,7 @@ import SuspenseLoader from "./components/SuspenseLoader";
 // import CartPage from "./pages/CartPage";
 // import ProfilePage from "./pages/ProfilePage";
 // import Signup from "./pages/Signup";
+
 //!code splitting
 const HomePage = lazy(() => import("./pages/HomePage"));
 const WishlistPage = lazy(() => import("./pages/WishListPage"));
@@ -27,42 +28,26 @@ const Signup = lazy(() => import("./pages/Signup"));
 
 function App() {
   const dispatch = useDispatch();
-  const state = useSelector((state) => state);
-  console.log("state---------------", state);
 
   useEffect(() => {
-    //This is the cleanup function for the authentication listener. It ensures that to  stop listening for authentication state changes when the component unmounts,
     const unsubscribeAuth = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        const unsubscribeSnapshot = onSnapshot(
-          doc(db, "users", user.uid),
-          (userDoc) => {
-            if (userDoc.exists()) {
-              const userData = userDoc.data();
-              dispatch(
-                initiateUser({
-                  name: userData.name,
-                  email: userData.email,
-                  uid: user.uid,
-                  dataId: "",
-                })
-              );
-            }
-          },
-          (error) => {
-            console.error("Error fetching user data:", error);
-          }
-        );
+      if (!user) return;
 
-        return () => {
-          unsubscribeSnapshot();
-        };
-      }
+      const docRef = doc(db, "users", user.uid);
+      const unsubscribeSnapshot = onSnapshot(
+        docRef,
+        (userDoc) => {
+          if (!userDoc.exists()) return;
+          //initiate the userdata with uid ,if its alrady singed initiate those data[cart,wishlist etc]
+          dispatch(initiateUser(userDoc.data()));
+        },
+        (error) => console.error("Error fetching user data:", error)
+      );
+
+      return unsubscribeSnapshot;
     });
 
-    return () => {
-      unsubscribeAuth();
-    };
+    return unsubscribeAuth;
   }, [dispatch]);
 
   return (
@@ -79,12 +64,10 @@ function App() {
           <Suspense fallback={<SuspenseLoader />}>
             <Routes>
               <Route path="/" element={<Signup />} />
-              <Route element={<PrivateRoutes />}>
-                <Route path="/home" element={<HomePage />} />
-                <Route path="/wishlist" element={<WishlistPage />} />
-                <Route path="/cart" element={<CartPage />} />
-                <Route path="/profile" element={<ProfilePage />} />
-              </Route>
+              <Route path="/home" element={<HomePage />} />
+              <Route path="/wishlist" element={<WishlistPage />} />
+              <Route path="/cart" element={<CartPage />} />
+              <Route path="/profile" element={<ProfilePage />} />
             </Routes>
           </Suspense>
         </Router>
@@ -94,3 +77,14 @@ function App() {
 }
 
 export default App;
+
+//!SYNTAX OF ONSNAPSHOT
+// const unsubscribe = onSnapshot(
+//   collection(db, "cities"),
+//   (snapshot) => {
+//     // ...
+//   },
+//   (error) => {
+//     // ...
+//   }
+// );

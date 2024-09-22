@@ -8,14 +8,13 @@ import {
   removeFromCart,
   addToWishlist,
   deleteFromWishList,
-} from "../../slices/accountSlice";
+} from "../../slices/userSlice";
 
 const Product = ({ data }) => {
   const dispatch = useDispatch();
-  const currUser = useSelector((state) => state.user.user);
-  // const currAccount = useSelector((state) => state.account);
-  const cart = useSelector((state) => state.account.cart);
-  const wishlist = useSelector((state) => state.account.wishlist);
+  const user = useSelector((state) => state.user.user);
+  const cart = user.cart;
+  const wishlist = user.wishlist;
 
   const getProductQuantity = (productId) => {
     const product = cart.find((p) => p.id === productId);
@@ -31,49 +30,24 @@ const Product = ({ data }) => {
   const isWishlisted = getIsProductWishlisted(data.id);
 
   // const imageUrl = `${window.location.origin}/${data.imageUrl}`;
-  // console.log(currUser);
 
   const handleCartAdd = (item) => {
-    // dispatch(addToCart(item));
-    dispatch(
-      addToCart({ data: item, userId: currUser.uid, dataId: currUser.dataId })
-    );
+    dispatch(addToCart(item));
     handleNotification("bag", "add");
   };
 
   const handleCartSub = (item) => {
-    // dispatch(removeFromCart(item));
-    dispatch(
-      removeFromCart({
-        data: item,
-        userId: currUser.uid,
-        dataId: currUser.dataId,
-      })
-    );
+    dispatch(removeFromCart(item));
     handleNotification("bag", "remove");
   };
 
   const handleAddWishlist = (item) => {
-    // dispatch(addToWishlist(item));
-    dispatch(
-      addToWishlist({
-        data: item,
-        userId: currUser.uid,
-        dataId: currUser.dataId,
-      })
-    );
+    dispatch(addToWishlist(item));
     handleNotification("wishlist", "add");
   };
 
   const handleDeleteWishlist = (item) => {
-    // dispatch(deleteFromWishList(item));
-    dispatch(
-      deleteFromWishList({
-        data: item,
-        userId: currUser.uid,
-        dataId: currUser.dataId,
-      })
-    );
+    dispatch(deleteFromWishList(item));
     handleNotification("wishlist", "remove");
   };
 
@@ -91,10 +65,7 @@ const Product = ({ data }) => {
     <div className="home-product">
       <Card
         className="home-product-card"
-        cover={
-          <img src={data.imageUrl} alt="product" />
-          // <img src={data.imageUrl} alt="product" className="product-card" />
-        }
+        cover={<img src={data.imageUrl} alt="product" />}
       >
         {isWishlisted ? (
           <span className="heart" onClick={() => handleDeleteWishlist(data)}>

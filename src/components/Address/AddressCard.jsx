@@ -1,19 +1,12 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Button, Popover } from "antd";
-import { deleteAddress, defaultAddress } from "../../slices/accountSlice";
+import { deleteAddress, defaultAddress } from "../../slices/userSlice";
 
 const AddressCard = ({ address, setIsEditFormModalOpen, setEditId }) => {
   const dispatch = useDispatch();
-  const currUser = useSelector((state) => state.user.user);
 
   const handleDelete = () => {
-    dispatch(
-      deleteAddress({
-        data: address.id,
-        userId: currUser.uid,
-        dataId: currUser.dataId,
-      })
-    );
+    dispatch(deleteAddress(address.id));
   };
 
   const handleEdit = () => {
@@ -22,13 +15,7 @@ const AddressCard = ({ address, setIsEditFormModalOpen, setEditId }) => {
   };
 
   const handleDelivery = () => {
-    dispatch(
-      defaultAddress({
-        data: address.id,
-        userId: currUser.uid,
-        dataId: currUser.dataId,
-      })
-    );
+    dispatch(defaultAddress(address.id));
   };
 
   return (

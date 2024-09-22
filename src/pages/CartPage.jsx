@@ -12,9 +12,9 @@ import Address from "../components/Address/Address";
 
 const CartPage = () => {
   let [couponDiscountPercent, setCouponDiscountPercent] = useState(0);
-  const list = useSelector((state) => state.account.cart);
+  const cartList = useSelector((state) => state.user.user.cart);
 
-  if (list.length === 0) {
+  if (cartList.length === 0) {
     return (
       <>
         <Header />
@@ -23,7 +23,7 @@ const CartPage = () => {
     );
   }
 
-  let total = list.reduce(
+  let total = cartList.reduce(
     (acc, initial) => acc + initial.price * initial.quantity,
     0
   );
@@ -37,9 +37,9 @@ const CartPage = () => {
         <div className="cart_page_left">
           <Address />
 
-          {/*//! cart list */}
+          {/* Cart List */}
           <div className="cart-product-list">
-            {list.map((item) => {
+            {cartList.map((item) => {
               return <CartItem item={item} key={item.id} />;
             })}
           </div>
@@ -52,7 +52,6 @@ const CartPage = () => {
             couponDiscountPercent={couponDiscountPercent}
           />
           <CheckoutSummary
-            list={list}
             total={total}
             couponDiscountPercent={couponDiscountPercent}
           />

@@ -10,14 +10,16 @@ function stillValid(total, percent) {
     if (percent === 10 && total >= 999) {
       return true;
     }
+
     if (percent === 25 && total >= 1799) {
       return true;
     }
+
     if (percent === 50 && total >= 4999) {
       return true;
-    } else {
-      return false;
     }
+
+    return false;
   }
 
   return true;

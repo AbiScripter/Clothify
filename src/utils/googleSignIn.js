@@ -25,7 +25,7 @@ const googleSignIn = async (setIsLoading) => {
     const errorMessage = error.message;
     toast.error(errorMessage);
     // const credential = GoogleAuthProvider.credentialFromError(error);
-    console.error(`Error during sign-in: ${errorMessage} (Code: ${errorCode})`);
+    // console.error(`Error during sign-in: ${errorMessage} (Code: ${errorCode})`);
     // Return just null so that in googleLoginForm we can use if block truthy values to skip errors
     return null;
   }

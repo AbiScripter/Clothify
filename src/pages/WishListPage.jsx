@@ -5,15 +5,14 @@ import { Button, Card } from "antd";
 import emptyWishlist from "../asset/empty-wishlist.png";
 import { NavLink } from "react-router-dom";
 import Header from "../Layout/Header";
-import { deleteFromWishList, addToCart } from "../slices/accountSlice";
+import { deleteFromWishList, addToCart } from "../slices/userSlice";
 
 const WishlistPage = () => {
   const dispatch = useDispatch();
-  const list = useSelector((state) => state.account.wishlist);
-  const currUser = useSelector((state) => state.user.user);
+  const wishlist = useSelector((state) => state.user.user.wishlist);
 
-  //if there is no wishlist products
-  if (list.length === 0) {
+  //if there is no wishlist
+  if (wishlist.length === 0) {
     return (
       <>
         <Header />
@@ -23,34 +22,19 @@ const WishlistPage = () => {
   }
 
   const handleDeleteWishlist = (item) => {
-    dispatch(
-      deleteFromWishList({
-        data: item,
-        userId: currUser.uid,
-        dataId: currUser.dataId,
-      })
-    );
+    dispatch(deleteFromWishList(item));
   };
 
   const handleMovingToCart = (item) => {
-    dispatch(
-      deleteFromWishList({
-        data: item,
-        userId: currUser.uid,
-        dataId: currUser.dataId,
-      })
-    );
-
-    dispatch(
-      addToCart({ data: item, userId: currUser.uid, dataId: currUser.dataId })
-    );
+    dispatch(deleteFromWishList(item));
+    dispatch(addToCart(item));
   };
 
   return (
     <>
       <Header />
       <div className="wishlist_container">
-        {list.map((product) => (
+        {wishlist.map((product) => (
           <WishlistProduct
             product={product}
             key={product.id}
