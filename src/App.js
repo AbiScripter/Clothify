@@ -28,6 +28,7 @@ const Signup = lazy(() => import("./pages/Signup"));
 
 function App() {
   const dispatch = useDispatch();
+
   useEffect(() => {
     const unsubscribeAuth = onAuthStateChanged(auth, (user) => {
       if (!user) return;

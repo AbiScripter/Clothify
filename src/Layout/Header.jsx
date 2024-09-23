@@ -13,6 +13,7 @@ import { auth } from "../firebase";
 import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import { reset } from "../slices/userSlice";
+// import { useAuthState } from "react-firebase-hooks/auth";
 import { useState } from "react";
 
 const Header = () => {
@@ -31,6 +32,7 @@ const Header = () => {
       console.error(error.message);
     }
   }
+
   return (
     <div>
       <Row className="nav" align="middle">

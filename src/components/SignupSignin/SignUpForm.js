@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 import GoogleLoginForm from "./GoogleLoginForm";
 
 const SignUpForm = ({ setIsSignInTab }) => {
-  const user = useSelector((state) => state.user.user);
+  const userData = useSelector((state) => state.user.user);
   const [form] = Form.useForm();
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
@@ -20,7 +20,7 @@ const SignUpForm = ({ setIsSignInTab }) => {
     //if signin succes it return userdata
     //if signin fails it returns null
     if (singupData !== null) {
-      createDoc(singupData, data.username, user);
+      createDoc(singupData, data.username, userData);
       navigate("/home");
     }
   }
