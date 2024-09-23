@@ -36,6 +36,7 @@ const CartPage = () => {
       <Header />
       <div className="cart_page">
         <div className="cart_page_left">
+          {/* all the address related components addressform,modal etc */}
           <Address />
 
           {/* Cart List */}

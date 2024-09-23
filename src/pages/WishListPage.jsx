@@ -11,6 +11,15 @@ const WishlistPage = () => {
   const dispatch = useDispatch();
   const wishlist = useSelector((state) => state.user.user.wishlist);
 
+  const handleDeleteWishlist = (item) => {
+    dispatch(deleteFromWishList(item));
+  };
+
+  const handleMovingToCart = (item) => {
+    dispatch(deleteFromWishList(item));
+    dispatch(addToCart(item));
+  };
+
   //if there is no wishlist
   if (wishlist.length === 0) {
     return (
@@ -20,15 +29,6 @@ const WishlistPage = () => {
       </>
     );
   }
-
-  const handleDeleteWishlist = (item) => {
-    dispatch(deleteFromWishList(item));
-  };
-
-  const handleMovingToCart = (item) => {
-    dispatch(deleteFromWishList(item));
-    dispatch(addToCart(item));
-  };
 
   return (
     <>

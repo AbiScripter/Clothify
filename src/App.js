@@ -28,11 +28,10 @@ const Signup = lazy(() => import("./pages/Signup"));
 
 function App() {
   const dispatch = useDispatch();
-
   useEffect(() => {
     const unsubscribeAuth = onAuthStateChanged(auth, (user) => {
       if (!user) return;
-
+      //onSnapshot is the method for real time data collection
       const docRef = doc(db, "users", user.uid);
       const unsubscribeSnapshot = onSnapshot(
         docRef,

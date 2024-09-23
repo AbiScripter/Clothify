@@ -7,15 +7,16 @@ import { useNavigate } from "react-router-dom";
 
 const GoogleLoginForm = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const account = useSelector((state) => state.account);
   const navigate = useNavigate();
+  const user = useSelector((state) => state.user.user);
 
   async function handleGoogleSignIn() {
     const googleData = await googleSignIn(setIsLoading);
+    console.log(googleData);
     //if the received data is not null
     if (googleData) {
       console.log(googleData);
-      createDoc(googleData.user, googleData.user.displayName, account);
+      createDoc(googleData.user, googleData.user.displayName, user);
       navigate("/home");
     }
   }

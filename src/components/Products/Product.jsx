@@ -13,8 +13,8 @@ import {
 const Product = ({ data }) => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user.user);
-  const cart = user.cart;
-  const wishlist = user.wishlist;
+  const cart = user.cart || [];
+  const wishlist = user.wishlist || [];
 
   const getProductQuantity = (productId) => {
     const product = cart.find((p) => p.id === productId);

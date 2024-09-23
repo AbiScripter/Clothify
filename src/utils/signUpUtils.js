@@ -34,6 +34,7 @@ async function signUp(email, password) {
 
 export default signUpUser;
 
+//?previously used promise.then() just keeping here for reference
 // const createUser=(auth,email,password)=>{
 //     createUserWithEmailAndPassword(auth, data.email, data.password)
 //     .then((userCredential) => {

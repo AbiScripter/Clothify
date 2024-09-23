@@ -35,6 +35,7 @@ async function signin(email, password) {
 
 export default signInUser;
 
+//?previously used promise.then() just keeping here for reference
 // signInWithEmailAndPassword(auth, email, password)
 //   .then((userCredential) => {
 //     // Signed in

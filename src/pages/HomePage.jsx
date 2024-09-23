@@ -41,8 +41,7 @@ const HomePage = () => {
   const womenProducts = productsData.filter((pro) => pro.category === "w");
   const kidsProducts = productsData.filter((pro) => pro.category === "k");
 
-  //!products
-  //!for ANTD TABS
+  //!products for ANTD Tabs
   const items = [
     {
       key: "1",
@@ -61,7 +60,7 @@ const HomePage = () => {
     },
   ];
 
-  // ?Previous used when there is a subcollection data, now its not used [just for reference purpose]
+  // ?Previously used when there is a subcollection data, now its not used [just for reference purpose]
   //!fetching user data(wishlit,cart etc)of that specific user if they already logged or not
   //!method using onsnapshot(real time data fetching)
   // useEffect(() => {

@@ -11,6 +11,7 @@ const googleSignIn = async (setIsLoading) => {
     // Set loading to false once the sign-in is complete
     setIsLoading(false);
 
+    console.log(result);
     // The signed-in user info.
     const user = result.user;
 
@@ -33,6 +34,7 @@ const googleSignIn = async (setIsLoading) => {
 
 export default googleSignIn;
 
+//?previously used promise.then() just keeping here for reference
 //   signInWithPopup(auth, provider)
 //     .then((result) => {
 //       // This gives you a Google Access Token. You can use it to access the Google API.
