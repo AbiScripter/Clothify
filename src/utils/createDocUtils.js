@@ -2,8 +2,17 @@ import { getDoc } from "firebase/firestore";
 import { db, doc, setDoc } from "../firebase";
 import { toast } from "react-toastify";
 
-async function createDoc(signupData, username, userAccountData) {
-  console.log(userAccountData);
+const defaultUserData = {
+  name: "",
+  email: "",
+  uid: "",
+  cart: [],
+  wishlist: [],
+  addressList: [],
+};
+
+async function createDoc(signupData, username) {
+  // console.log(userAccountData);
   console.log(signupData);
 
   const userRef = doc(db, "users", signupData.uid);
@@ -15,9 +24,9 @@ async function createDoc(signupData, username, userAccountData) {
   if (!userData.exists()) {
     // console.log("first time signing up........");
     try {
-      //initializing user info like name,mail in firebase with data got from signup and signin methods and combine with redux initial state data(cart[],wishlit[],address[] referenced here as userAccountData)
+      //initializing user info like name,mail in firebase with data got from signup and signin methods and combine with defaultUserData which is same as redux initial state
       await setDoc(doc(db, "users", signupData.uid), {
-        ...userAccountData,
+        ...defaultUserData,
         name: signupData.displayName ? signupData.displayName : username,
         email: signupData.email,
         uid: signupData.uid,

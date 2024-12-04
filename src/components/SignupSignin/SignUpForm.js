@@ -3,24 +3,24 @@ import { useNavigate } from "react-router-dom";
 import { Button, Form, Input, Card } from "antd";
 import signUpUser from "../../utils/signUpUtils";
 import createDoc from "../../utils/createDocUtils";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 import GoogleLoginForm from "./GoogleLoginForm";
 
 const SignUpForm = ({ setIsSignInTab }) => {
-  const userData = useSelector((state) => state.user.user);
+  // const userData = useSelector((state) => state.user.user);
   const [form] = Form.useForm();
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
   // const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-  async function handleFormSubmit(data) {
-    const singupData = await signUpUser(data, setIsLoading);
+  async function handleFormSubmit(formData) {
+    const singupData = await signUpUser(formData, setIsLoading);
 
-    //if signin succes it return userdata
-    //if signin fails it returns null
+    //if signup is success it will return userdata
+    //if signup fails it returns null
     if (singupData !== null) {
-      createDoc(singupData, data.username, userData);
+      createDoc(singupData, formData.username);
       navigate("/home");
     }
   }

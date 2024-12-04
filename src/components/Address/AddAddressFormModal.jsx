@@ -19,7 +19,13 @@ const AddAddressFormModal = () => {
 
   return (
     <>
-      <Button block danger type="primary" onClick={showModal}>
+      <Button
+        className="add-address-btn"
+        block
+        danger
+        type="primary"
+        onClick={showModal}
+      >
         ADD NEW ADDRESS
       </Button>
       <Modal

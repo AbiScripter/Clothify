@@ -13,11 +13,23 @@
   justify-content: center;
   flex-direction: column;
   margin: 3rem 0rem;
+  gap: 2rem;
 
   p {
     margin: 0;
     margin-bottom: 0.5rem;
   }
+}
+
+.add-address-btn {
+  margin-top: 1rem;
+}
+
+.address-card-btns {
+  display: flex;
+  gap: 0.3rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
 }
 
 @media (width<576px) {

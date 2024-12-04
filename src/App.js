@@ -38,7 +38,7 @@ function App() {
         docRef,
         (userDoc) => {
           if (!userDoc.exists()) return;
-          //initiate the userdata with uid ,if its alrady singed initiate those data[cart,wishlist etc]
+          //initiate the userdata with uid ,if its already signed initiate those data[cart,wishlist etc]
           dispatch(initiateUser(userDoc.data()));
         },
         (error) => console.error("Error fetching user data:", error)

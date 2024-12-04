@@ -9,9 +9,9 @@ const SignInForm = ({ setIsSignInTab }) => {
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
-  async function handleFormSubmit(data) {
-    const user = await signInUser(data, setIsLoading);
-    //if signin success it return userdata
+  async function handleFormSubmit(formdata) {
+    const user = await signInUser(formdata, setIsLoading);
+    //if signin is success it will return userdata
     //if signin fails it returns null
     if (user !== null) {
       navigate("/home");

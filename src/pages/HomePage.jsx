@@ -11,9 +11,10 @@ import "./HomePage.css";
 import { Tabs } from "antd";
 import { useSelector } from "react-redux";
 import Header from "../Layout/Header";
+import Footer from "../Layout/Footer";
 
 const HomePage = () => {
-  const user = useSelector((state) => state.user.user);
+  const user = useSelector((state) => state.user.user); //just for reference
   console.log(user);
 
   const [productsData, setProductsData] = useState([]);

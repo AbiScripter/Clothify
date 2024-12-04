@@ -7,22 +7,16 @@
   --border: #eaeaec;
 }
 
-/* *,
-html,
-body {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-} */
-
 body {
   font-family: "Noto Sans", sans-serif;
   padding: 0;
   margin: 0;
-  /* background-color: #ffcdb2; */
   background-color: var(--primary);
 }
 
+* {
+  text-transform: capitalize;
+}
 .navlink {
   color: black;
 }
@@ -35,11 +29,13 @@ body {
   position: absolute;
   top: 10px;
   right: 10px;
+  cursor: pointer;
 }
 
 /* !ANT STYLES */
 .ant-card {
   background-color: var(--beige-light) !important;
+  font-weight: 500;
 }
 
 /* .ant-btn:hover {

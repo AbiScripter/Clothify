@@ -10,13 +10,18 @@
 
 .home-product-card {
   min-height: 20rem !important;
+
+  .ant-card-body {
+    padding: 0;
+    padding-left: 1rem;
+    padding-bottom: 1rem;
+  }
 }
 
 .products-wrapper {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(100px, 170px));
   gap: 1.3rem;
-  margin: 3rem 0;
   padding: 1rem;
 }
 
@@ -25,6 +30,8 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    padding: 0 !important;
+    margin: 1rem 0;
     /* grid-template-columns: repeat(auto-fit, minmax(150px, 2s50px)); */
   }
 

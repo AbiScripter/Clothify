@@ -1,14 +1,12 @@
 import { Button } from "antd";
 import React, { useState } from "react";
 import googleSignIn from "../../utils/googleSignIn";
-import { useSelector } from "react-redux";
 import createDoc from "../../utils/createDocUtils";
 import { useNavigate } from "react-router-dom";
 
 const GoogleLoginForm = () => {
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
-  const user = useSelector((state) => state.user.user);
 
   async function handleGoogleSignIn() {
     const googleData = await googleSignIn(setIsLoading);
@@ -16,7 +14,7 @@ const GoogleLoginForm = () => {
     //if the received data is not null
     if (googleData) {
       console.log(googleData);
-      createDoc(googleData.user, googleData.user.displayName, user);
+      createDoc(googleData.user, googleData.user.displayName);
       navigate("/home");
     }
   }

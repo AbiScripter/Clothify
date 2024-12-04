@@ -2,10 +2,12 @@
   background: #f4e8d1;
   padding: 1rem;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  max-height: 5rem;
 }
 
 .logo-container {
   display: flex;
+  margin-top: -1rem;
   margin-left: 0.5rem;
   flex-direction: column;
 
@@ -30,9 +32,10 @@
 }
 
 .right {
+  margin-top: -1rem;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   gap: 2rem;
 
   p {
@@ -63,6 +66,7 @@
   .right {
     gap: 1rem;
     justify-content: end;
+    margin: 0;
   }
 
   .link-span {
@@ -72,6 +76,7 @@
   }
 
   .logo-container {
+    margin: 0;
     img {
       display: none;
     }
