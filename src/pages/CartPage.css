@@ -6,6 +6,7 @@
   margin: 0 auto;
   min-height: 80vh;
   margin-top: 2rem;
+  text-transform: capitalize;
 }
 
 .cart_page_left {

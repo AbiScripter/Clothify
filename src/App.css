@@ -14,9 +14,6 @@ body {
   background-color: var(--primary);
 }
 
-* {
-  text-transform: capitalize;
-}
 .navlink {
   color: black;
 }
