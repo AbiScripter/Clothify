@@ -11,7 +11,6 @@ import "./HomePage.css";
 import { Tabs } from "antd";
 import { useSelector } from "react-redux";
 import Header from "../Layout/Header";
-import Footer from "../Layout/Footer";
 
 const HomePage = () => {
   const user = useSelector((state) => state.user.user); //just for reference
@@ -112,7 +111,7 @@ const HomePage = () => {
     <>
       <Header />
       <div className="home-page">
-        <Tabs defaultActiveKey="1" items={items} />
+        <Tabs size="large" defaultActiveKey="1" items={items} />
       </div>
     </>
   );

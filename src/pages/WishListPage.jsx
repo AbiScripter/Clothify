@@ -78,7 +78,7 @@ const EmptyWishlist = () => {
     <div className="empty_wishlist">
       <img src={emptyWishlist} alt="empty-wishlist" />
       <p>Your Wish list is empty</p>
-      <Button>
+      <Button type="primary">
         <NavLink to="/home">Explore More</NavLink>
       </Button>
     </div>

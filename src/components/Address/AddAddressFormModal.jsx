@@ -22,7 +22,6 @@ const AddAddressFormModal = () => {
       <Button
         className="add-address-btn"
         block
-        danger
         type="primary"
         onClick={showModal}
       >

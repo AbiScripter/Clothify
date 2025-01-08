@@ -11,15 +11,10 @@ body {
   font-family: "Noto Sans", sans-serif;
   padding: 0;
   margin: 0;
-  background-color: var(--primary);
 }
 
 .navlink {
   color: black;
-}
-
-.navlink.active {
-  color: var(--orange-dark);
 }
 
 .heart {
@@ -31,47 +26,11 @@ body {
 
 /* !ANT STYLES */
 .ant-card {
-  background-color: var(--beige-light) !important;
   font-weight: 500;
 }
 
-/* .ant-btn:hover {
-  background-color: var(--olive-dark) !important;
-  color: var(--beige-1) !important;
-} */
-
-.ant-btn:not([disabled]):hover {
-  background-color: var(--olive-dark) !important;
-  color: var(--beige-1) !important;
-}
-
 .ant-btn {
-  color: var(--olive-dark) !important;
-  background-color: var(--beige-1) !important;
-  border-color: var(--beige-1) !important;
   font-weight: bold !important;
-}
-
-.ant-btn-dangerous:not([disabled]):hover {
-  background-color: var(--orange-dark) !important;
-  color: var(--beige-1) !important;
-}
-
-.ant-btn-dangerous {
-  background-color: var(--beige-1) !important;
-  color: var(--orange-dark) !important;
-}
-
-.ant-modal-content {
-  background-color: var(--beige-light) !important;
-
-  .ant-modal-title {
-    background-color: var(--beige-light) !important;
-  }
-
-  input:focus {
-    background-color: var(--beige-1) !important;
-  }
 }
 
 /* 

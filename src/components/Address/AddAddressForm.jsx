@@ -70,7 +70,7 @@ const AddAddressForm = ({ setIsAddressFormModalOpen }) => {
         <Input />
       </Form.Item>
 
-      <Button type="primary" block htmlType="submit">
+      <Button type="primary" s block htmlType="submit">
         SUBMIT
       </Button>
     </Form>

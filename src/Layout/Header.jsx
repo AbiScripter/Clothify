@@ -58,12 +58,12 @@ const Header = () => {
               <span>&nbsp;Bag</span>
             </span>
           </NavLink>
-          <NavLink to="/profile" className="navlink">
+          {/* <NavLink to="/profile" className="navlink">
             <span className="link-span">
               <UserOutlined />
               <span>&nbsp;Profile</span>
             </span>
-          </NavLink>
+          </NavLink> */}
           <ConfirmLogout handleSignOut={handleSignOut} />
         </Col>
       </Row>
@@ -89,7 +89,12 @@ const ConfirmLogout = ({ handleSignOut }) => {
 
   return (
     <>
-      <Button type="primary" className="sign-out-btn" onClick={showModal}>
+      <Button
+        type="primary"
+        danger
+        className="sign-out-btn"
+        onClick={showModal}
+      >
         <span className="log-out-text">SignOut</span>
         <LogoutOutlined className="log-out-icon" />
       </Button>
@@ -103,7 +108,7 @@ const ConfirmLogout = ({ handleSignOut }) => {
           <Button key="cancel" danger onClick={handleCancel}>
             Cancel
           </Button>,
-          <Button key="ok" type="primary" onClick={handleOk}>
+          <Button key="ok" onClick={handleOk}>
             OK
           </Button>,
         ]}

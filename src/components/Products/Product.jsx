@@ -77,26 +77,28 @@ const Product = ({ data }) => {
           </span>
         )}
 
-        <p>
+        <p className="home-product-card-main">
           <span>{data.name}</span>
           <br />
-          <span>Rs. {data.price}</span>
+          <span>₹{data.price}</span>
         </p>
 
-        {qty >= 1 ? (
-          <div>
-            <Button size="small" onClick={() => handleCartSub(data)}>
-              <MinusOutlined />
-            </Button>
-            <span> {qty} </span>
+        <div className="home-product-card-footer">
+          {qty >= 1 ? (
+            <div>
+              <Button size="small" onClick={() => handleCartSub(data)}>
+                <MinusOutlined />
+              </Button>
+              <span> {qty} </span>
 
-            <Button size="small" onClick={() => handleCartAdd(data)}>
-              <PlusOutlined />
-            </Button>
-          </div>
-        ) : (
-          <Button onClick={() => handleCartAdd(data)}>Add to cart</Button>
-        )}
+              <Button size="small" onClick={() => handleCartAdd(data)}>
+                <PlusOutlined />
+              </Button>
+            </div>
+          ) : (
+            <Button onClick={() => handleCartAdd(data)}>Add to cart</Button>
+          )}
+        </div>
       </Card>
     </div>
   );

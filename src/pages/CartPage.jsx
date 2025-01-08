@@ -68,7 +68,7 @@ const EmptyCart = () => {
     <div className="emptybag">
       <img src={emptybag} alt="empty_bag" />
       <p> There is nothing in your bag. Let's add some items.</p>
-      <Button>
+      <Button type="primary">
         <NavLink to="/wishlist">Add Items from the Wishlist</NavLink>
       </Button>
     </div>

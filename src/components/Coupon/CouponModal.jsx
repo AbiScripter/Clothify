@@ -83,7 +83,7 @@ const CouponPreview = ({ couponDiscountPercent, showModal }) => {
         <h3> Coupon Applied STEAL{couponDiscountPercent} </h3>
       </Col>
       <Col xs={6}>
-        <Button danger onClick={showModal}>
+        <Button type="primary" danger onClick={showModal}>
           EDIT
         </Button>
       </Col>
@@ -94,7 +94,7 @@ const CouponPreview = ({ couponDiscountPercent, showModal }) => {
         <h3>Apply Coupons </h3>
       </Col>
       <Col xs={6}>
-        <Button danger onClick={showModal}>
+        <Button type="primary" onClick={showModal}>
           APPLY
         </Button>
       </Col>

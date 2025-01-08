@@ -38,7 +38,6 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    /* grid-template-columns: repeat(auto-fit, minmax(150px, 2s50px)); */
   }
 
   .wishlist_product {
