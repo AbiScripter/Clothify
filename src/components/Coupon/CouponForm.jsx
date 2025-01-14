@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Form, Radio, Card, Popover } from "antd";
+import { Button, Form, Radio, Popover } from "antd";
 
 const CouponForm = ({
   total,
@@ -37,21 +37,19 @@ const CouponForm = ({
   };
 
   return (
-    <Form
-      form={form}
-      variant="filled"
-      style={{ maxWidth: 600 }}
-      onFinish={handleFormSubmit}
-    >
-      <h3>Available Coupons</h3>
-      <h4>Total Amount: {total}</h4>
-      <Form.Item name="radio-group">
+    <Form form={form} variant="filled" onFinish={handleFormSubmit}>
+      <h3 className="font-bold text-lg">Available Coupons</h3>
+      <h4 className="font-semibold">Total Amount: ₹{total}</h4>
+      <Form.Item name="radio-group" className="mt-4">
         <Radio.Group>
-          <CustomRadio
-            price={999}
-            offerPercentage={10}
-            checkEligible={checkEligible}
-          />
+          <div className="">
+            <CustomRadio
+              price={999}
+              offerPercentage={10}
+              checkEligible={checkEligible}
+            />
+          </div>
+
           <CustomRadio
             price={1799}
             offerPercentage={25}
@@ -65,7 +63,7 @@ const CouponForm = ({
         </Radio.Group>
       </Form.Item>
 
-      <Button type="primary" block htmlType="submit">
+      <Button type="primary" block htmlType="submit" className="-mt-2">
         APPLY
       </Button>
     </Form>
@@ -77,15 +75,21 @@ const CustomRadio = ({ price, offerPercentage, checkEligible }) => {
     <Radio
       value={offerPercentage}
       disabled={checkEligible(price, "radio")}
-      className="custom-radio"
+      className="custom-radio mb-6"
     >
-      <Popover placement="right" content={checkEligible(price, "popover")}>
-        <Card className="offer-card" style={{ width: 300 }}>
-          <Button>STEAL{offerPercentage}</Button>
-          <p>
-            {offerPercentage}% off on order above Rs. {price}
-          </p>
-        </Card>
+      <Popover
+        placement="right"
+        content={checkEligible(price, "popover")}
+        className=""
+      >
+        <div className="border p-2 w-[20rem] rounded-md">
+          <div className="flex flex-col gap-2">
+            <h1 className="font-bold text-lg">STEAL{offerPercentage}</h1>
+            <p className="font-semibold">
+              {offerPercentage}% off on order above ₹{price}
+            </p>
+          </div>
+        </div>
       </Popover>
     </Radio>
   );

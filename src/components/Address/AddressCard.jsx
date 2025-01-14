@@ -19,8 +19,11 @@ const AddressCard = ({ address, setIsEditFormModalOpen, setEditId }) => {
   };
 
   return (
-    <div className="address_card">
-      <p>{address.name}</p>
+    <div
+      className="address_card border p-2 flex flex-col gap-1 rounded-md"
+      style={{ backgroundColor: `${address.isDefault ? "#F5F5F5" : ""}` }}
+    >
+      <p className="capitalize">{address.name}</p>
       <p>
         {address.address},{address.city} {address.pincode}
       </p>
@@ -28,7 +31,7 @@ const AddressCard = ({ address, setIsEditFormModalOpen, setEditId }) => {
         {address.city}, {address.state}{" "}
       </p>
       <p>Mobile: {address.mobile}</p>
-      <div className="address-card-btns">
+      <div className="address-card-btns flex gap-2">
         <Button
           size="small"
           onClick={handleDelivery}

@@ -18,10 +18,9 @@ const AddAddressFormModal = () => {
   };
 
   return (
-    <>
+    <div>
       <Button
-        className="add-address-btn"
-        block
+        className="add-address-btn mt-2"
         type="primary"
         onClick={showModal}
       >
@@ -36,7 +35,7 @@ const AddAddressFormModal = () => {
       >
         <AddAddressForm setIsAddressFormModalOpen={setIsAddressFormModalOpen} />
       </Modal>
-    </>
+    </div>
   );
 };
 

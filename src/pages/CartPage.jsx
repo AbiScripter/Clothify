@@ -34,20 +34,22 @@ const CartPage = () => {
   return (
     <>
       <Header />
-      <div className="cart_page">
-        <div className="cart_page_left">
+      <div className="grid grid-cols-5 gap-2">
+        <div className="col-span-full md:col-span-3 flex flex-col gap-8 p-4 sm:border-r pr-6">
           {/* all the address related components addressform,modal etc */}
-          <Address />
+          <div className="sm:border-b pb-4">
+            <Address />
+          </div>
 
           {/* Cart List */}
-          <div className="cart-product-list">
+          <div className="cart-product-list grid grid-cols-1 gap-4">
             {cartList.map((item) => {
               return <CartItem item={item} key={item.id} />;
             })}
           </div>
         </div>
 
-        <div className="cart_page_right">
+        <div className="col-span-full md:col-span-2 p-4 flex flex-col gap-8">
           <CouponModal
             total={total}
             setCouponDiscountPercent={setCouponDiscountPercent}
@@ -65,8 +67,8 @@ const CartPage = () => {
 
 const EmptyCart = () => {
   return (
-    <div className="emptybag">
-      <img src={emptybag} alt="empty_bag" />
+    <div className="flex flex-col items-center gap-2 h-[90vh] justify-center">
+      <img src={emptybag} alt="empty_bag" className="h-32 sm:h-44" />
       <p> There is nothing in your bag. Let's add some items.</p>
       <Button type="primary">
         <NavLink to="/wishlist">Add Items from the Wishlist</NavLink>

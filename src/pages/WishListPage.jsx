@@ -33,7 +33,7 @@ const WishlistPage = () => {
   return (
     <>
       <Header />
-      <div className="wishlist_container">
+      <div className="grid grid-cols-[repeat(auto-fit,_minmax(100px,_250px))] gap-4 p-4">
         {wishlist.map((product) => (
           <WishlistProduct
             product={product}
@@ -53,30 +53,25 @@ const WishlistProduct = ({
   handleMovingToCart,
 }) => {
   return (
-    <div className="wishlist_product">
-      <Card cover={<img src={product.imageUrl} alt="product" />}>
-        <p>
-          <span>{product.name}</span>
-          <br />
-          <span> Rs. {product.price}</span>
-        </p>
-        <div className="wishlist_product-btns">
-          <Button onClick={() => handleMovingToCart(product)}>
-            MOVE TO BAG
-          </Button>
-          <Button danger onClick={() => handleDeleteWishlist(product)}>
-            REMOVE
-          </Button>
-        </div>
-      </Card>
-    </div>
+    <Card cover={<img src={product.imageUrl} alt="product" className="" />}>
+      <p className="flex flex-col items-center">
+        <span className="capitalize">{product.name}</span>
+        <span>₹{product.price}</span>
+      </p>
+      <div className="flex gap-2 mt-2">
+        <Button onClick={() => handleMovingToCart(product)}>MOVE TO BAG</Button>
+        <Button danger onClick={() => handleDeleteWishlist(product)}>
+          REMOVE
+        </Button>
+      </div>
+    </Card>
   );
 };
 
 const EmptyWishlist = () => {
   return (
-    <div className="empty_wishlist">
-      <img src={emptyWishlist} alt="empty-wishlist" />
+    <div className="flex flex-col items-center gap-2 h-[90vh] justify-center">
+      <img src={emptyWishlist} alt="empty-wishlist" className="h-32 sm:h-44" />
       <p>Your Wish list is empty</p>
       <Button type="primary">
         <NavLink to="/home">Explore More</NavLink>

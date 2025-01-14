@@ -20,7 +20,7 @@ const SignInForm = ({ setIsSignInTab }) => {
 
   return (
     <Card className="signin-form-container">
-      <h2>Hi, Welcome Back 👋</h2>
+      <h2 className="text-xl mb-4">Hi, Welcome Back 👋</h2>
       <Form
         onFinish={handleFormSubmit}
         form={form}
@@ -59,10 +59,10 @@ const SignInForm = ({ setIsSignInTab }) => {
         <Button type="primary" block htmlType="submit" loading={isLoading}>
           Login
         </Button>
-        <p>
+        <p className="my-3">
           Don't have an acoount ?&nbsp;
           <span
-            className="form-link"
+            className="text-blue-400 underline font-bold cursor-pointer"
             onClick={() => setIsSignInTab((prev) => !prev)}
           >
             Sign Up

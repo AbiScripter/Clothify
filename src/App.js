@@ -1,4 +1,3 @@
-import "./App.css";
 import { lazy, useEffect, Suspense } from "react";
 import { useDispatch } from "react-redux";
 

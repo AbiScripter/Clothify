@@ -28,7 +28,7 @@ async function createDoc(signupData, username) {
       await setDoc(doc(db, "users", signupData.uid), {
         ...defaultUserData,
         name: signupData.displayName ? signupData.displayName : username,
-        email: signupData.email,
+        email: signupData.email ? signupData.email : "guest@gmail.com",
         uid: signupData.uid,
       });
 

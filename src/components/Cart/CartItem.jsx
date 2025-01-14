@@ -39,40 +39,49 @@ const CartItem = ({ item }) => {
   };
 
   return (
-    <div>
+    <div className="cart-product-card">
       {item.quantity > 0 ? (
         <Card
-          className="cart-product-card"
+          className="cart-product-card flex h-44 p-0"
           cover={
             <img
               src={item.imageUrl}
               alt="product"
-              className="cart-product-img"
+              style={{ minWidth: "7rem" }}
+              className="cart-product-img h-full"
             />
           }
         >
-          <div>
-            <h3>{item.name}</h3>
+          <div className="">
+            <div className="flex flex-col gap-2">
+              <h3 className="capitalize font-semibold">{item.name}</h3>
 
-            <Button size="small" onClick={() => handleCartSub(item)}>
-              <MinusOutlined />
-            </Button>
-            <span> {item.quantity} </span>
-            <Button size="small" onClick={() => handleCartAdd(item)}>
-              {/* <span class="material-symbols-outlined">add</span> */}
-              <PlusOutlined />
-            </Button>
+              <div>
+                <Button size="small" onClick={() => handleCartSub(item)}>
+                  <MinusOutlined />
+                </Button>
+                <span> {item.quantity} </span>
+                <Button size="small" onClick={() => handleCartAdd(item)}>
+                  {/* <span class="material-symbols-outlined">add</span> */}
+                  <PlusOutlined />
+                </Button>
+              </div>
 
-            <p>₹{Math.floor(item.quantity * item.price)}</p>
-          </div>
+              <p>₹{Math.floor(item.quantity * item.price)}</p>
+            </div>
 
-          <div className="cart-product-btns">
-            <Button size="small" onClick={() => handleMovingToWishlist(item)}>
-              <span>MOVE TO WISHLIST</span>
-            </Button>
-            <Button size="small" danger onClick={() => handleCartDelete(item)}>
-              DELETE FROM CART
-            </Button>
+            <div className="mt-2 flex-col sm:flex-row sm:mt-4 flex gap-2">
+              <Button size="small" onClick={() => handleMovingToWishlist(item)}>
+                <span>MOVE TO WISHLIST</span>
+              </Button>
+              <Button
+                size="small"
+                danger
+                onClick={() => handleCartDelete(item)}
+              >
+                DELETE FROM CART
+              </Button>
+            </div>
           </div>
         </Card>
       ) : (

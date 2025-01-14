@@ -47,7 +47,6 @@ const EditForm = ({ setIsEditFormModalOpen, editId }) => {
       style={{ maxWidth: 600 }}
       onFinish={handleFormUpdate}
     >
-      <h3>Contact Details</h3>
       <Form.Item
         label="Name"
         name="name"
@@ -63,7 +62,6 @@ const EditForm = ({ setIsEditFormModalOpen, editId }) => {
         <Input />
       </Form.Item>
 
-      <h3>Address</h3>
       <Form.Item
         label="pincode"
         name="pincode"

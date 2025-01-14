@@ -62,45 +62,48 @@ const Product = ({ data }) => {
   };
 
   return (
-    <div className="home-product">
-      <Card
-        className="home-product-card"
-        cover={<img src={data.imageUrl} alt="product" />}
-      >
-        {isWishlisted ? (
-          <span className="heart" onClick={() => handleDeleteWishlist(data)}>
-            {fullHeart}
-          </span>
+    <Card
+      className="relative"
+      cover={<img src={data.imageUrl} alt="product" />}
+    >
+      {isWishlisted ? (
+        <span
+          className="absolute right-2 top-1"
+          onClick={() => handleDeleteWishlist(data)}
+        >
+          {fullHeart}
+        </span>
+      ) : (
+        <span
+          className="absolute right-2 top-1"
+          onClick={() => handleAddWishlist(data)}
+        >
+          {emptyHeart}
+        </span>
+      )}
+
+      <p className="flex flex-col items-center gap-1">
+        <span className="capitalize">{data.name}</span>
+        <span>₹{data.price}</span>
+      </p>
+
+      <div className="flex justify-center items-center mt-2">
+        {qty >= 1 ? (
+          <div>
+            <Button size="small" onClick={() => handleCartSub(data)}>
+              <MinusOutlined />
+            </Button>
+            <span> {qty} </span>
+
+            <Button size="small" onClick={() => handleCartAdd(data)}>
+              <PlusOutlined />
+            </Button>
+          </div>
         ) : (
-          <span className="heart" onClick={() => handleAddWishlist(data)}>
-            {emptyHeart}
-          </span>
+          <Button onClick={() => handleCartAdd(data)}>Add to cart</Button>
         )}
-
-        <p className="home-product-card-main">
-          <span>{data.name}</span>
-          <br />
-          <span>₹{data.price}</span>
-        </p>
-
-        <div className="home-product-card-footer">
-          {qty >= 1 ? (
-            <div>
-              <Button size="small" onClick={() => handleCartSub(data)}>
-                <MinusOutlined />
-              </Button>
-              <span> {qty} </span>
-
-              <Button size="small" onClick={() => handleCartAdd(data)}>
-                <PlusOutlined />
-              </Button>
-            </div>
-          ) : (
-            <Button onClick={() => handleCartAdd(data)}>Add to cart</Button>
-          )}
-        </div>
-      </Card>
-    </div>
+      </div>
+    </Card>
   );
 };
 

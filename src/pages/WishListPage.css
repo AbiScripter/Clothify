@@ -1,4 +1,4 @@
-.wishlist_container {
+/* .wishlist_container {
   display: grid;
   gap: 1.5rem;
   grid-template-columns: repeat(auto-fit, minmax(100px, 230px));
@@ -48,4 +48,4 @@
     flex-direction: column;
     gap: 0.4rem;
   }
-}
+} */

@@ -25,8 +25,8 @@ const CheckoutSummary = ({ total, couponDiscountPercent }) => {
   finalTotal = totalCalcHelper(total, isShippingFree);
 
   return (
-    <div className="checkout_container">
-      <p>PRICE DETAILS</p>
+    <div className="checkout_container flex flex-col gap-3">
+      <p className="font-semibold">PRICE DETAILS</p>
       <Row>
         <Col span={12}>Total MRP</Col>
         <Col span={12}>₹{Math.floor(total)}</Col>

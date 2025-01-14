@@ -1,22 +1,22 @@
 import { NavLink, useNavigate } from "react-router-dom";
-import { Row, Col, Button, Modal } from "antd";
+import { Button, Modal, Dropdown } from "antd";
 import {
   HeartOutlined,
   ShoppingOutlined,
-  UserOutlined,
   LogoutOutlined,
+  CaretDownOutlined,
 } from "@ant-design/icons";
 import "./Header.css";
-import logo from "../asset/logoo.png";
+import logo from "../asset/app-logo.png";
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { reset } from "../slices/userSlice";
 // import { useAuthState } from "react-firebase-hooks/auth";
 import { useState } from "react";
 
-const Header = () => {
+const ConfirmLogout = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -33,45 +33,6 @@ const Header = () => {
     }
   }
 
-  return (
-    <div>
-      <Row className="nav" align="middle">
-        <Col xs={12} sm={6} md={10} lg={12} xl={16} className="left">
-          <NavLink to="/home" className="navlink">
-            <div className="logo-container">
-              <img src={logo} alt="logo" className="logo" />
-              <p className="logo-text">Clothify</p>
-            </div>
-          </NavLink>
-        </Col>
-
-        <Col xs={12} sm={18} md={14} lg={12} xl={8} className="right">
-          <NavLink to="/wishlist" className="navlink">
-            <span className="link-span">
-              <HeartOutlined />
-              <span>&nbsp;Wishlist</span>
-            </span>
-          </NavLink>
-          <NavLink to="/cart" className="navlink">
-            <span className="link-span">
-              <ShoppingOutlined />
-              <span>&nbsp;Bag</span>
-            </span>
-          </NavLink>
-          {/* <NavLink to="/profile" className="navlink">
-            <span className="link-span">
-              <UserOutlined />
-              <span>&nbsp;Profile</span>
-            </span>
-          </NavLink> */}
-          <ConfirmLogout handleSignOut={handleSignOut} />
-        </Col>
-      </Row>
-    </div>
-  );
-};
-
-const ConfirmLogout = ({ handleSignOut }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const showModal = () => {
@@ -88,16 +49,13 @@ const ConfirmLogout = ({ handleSignOut }) => {
   };
 
   return (
-    <>
-      <Button
-        type="primary"
-        danger
-        className="sign-out-btn"
-        onClick={showModal}
-      >
+    <div>
+      <p type="primary" className="flex items-center gap-1" onClick={showModal}>
+        <span>
+          <LogoutOutlined className="" />
+        </span>
         <span className="log-out-text">SignOut</span>
-        <LogoutOutlined className="log-out-icon" />
-      </Button>
+      </p>
       <Modal
         className="confirm-logout-modal"
         title="Confirm Logout"
@@ -115,7 +73,125 @@ const ConfirmLogout = ({ handleSignOut }) => {
       >
         <p>Are you sure to log out</p>
       </Modal>
-    </>
+    </div>
+  );
+};
+
+const Header = () => {
+  const user = useSelector((state) => state.user.user); //just for reference
+
+  const items = [
+    {
+      key: "0",
+      disabled: true,
+      label: (
+        <div>
+          <p className="text-black capitalize">{user.name}</p>
+          <p className="text-black">{user.email}</p>
+        </div>
+      ),
+    },
+    {
+      type: "divider",
+    },
+    {
+      key: "1",
+      label: (
+        <NavLink to="/wishlist" className="navlink">
+          <p className="flex gap-1">
+            <span className="">
+              <HeartOutlined />
+            </span>
+            <span>Wishlist</span>
+          </p>
+        </NavLink>
+      ),
+    },
+    {
+      key: "2",
+      label: (
+        <NavLink to="/cart" className="navlink">
+          <p className="flex gap-1">
+            <span className="">
+              <ShoppingOutlined />
+            </span>
+            <span>Bag</span>
+          </p>
+        </NavLink>
+      ),
+    },
+    {
+      key: "3",
+      danger: true,
+      label: <ConfirmLogout />,
+    },
+  ];
+
+  return (
+    <div className="px-4 py-1">
+      <div className="flex justify-between items-center">
+        <div className="left">
+          <NavLink to="/home" className="navlink">
+            <div className="flex items-center">
+              <img src={logo} alt="logo" className="w-14 h-14" />
+              <h1
+                style={{ fontFamily: "Ultra, serif" }}
+                className="hidden sm:block font-bold text-lg -ml-2 -mt-2"
+              >
+                Clothify
+              </h1>
+            </div>
+          </NavLink>
+        </div>
+
+        <div
+          style={{ fontSize: "1rem" }}
+          className="flex gap-4 justify-end items-center"
+        >
+          <div className="gap-4 hidden sm:flex">
+            <NavLink to="/wishlist" className="navlink">
+              <p className="flex gap-1">
+                <span className="hidden sm:block">
+                  <HeartOutlined />
+                </span>
+                <span>Wishlist</span>
+              </p>
+            </NavLink>
+            <NavLink to="/cart" className="navlink">
+              <p className="flex gap-1">
+                <span className="hidden sm:block">
+                  <ShoppingOutlined />
+                </span>
+                <span>Bag</span>
+              </p>
+            </NavLink>
+          </div>
+
+          <div className="">
+            <Dropdown
+              menu={{
+                items,
+              }}
+              placement="bottomRight"
+              arrow={
+                {
+                  // pointAtCenter: true,
+                }
+              }
+            >
+              <div>
+                <div className="cursor-pointer text-right capitalize flex gap-1 items-center">
+                  <p className="text-xl bg-gray-300 rounded-full w-10 h-10 flex justify-center items-center">
+                    {user.name.slice(0, 1)}
+                  </p>
+                  <CaretDownOutlined />
+                </div>
+              </div>
+            </Dropdown>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 

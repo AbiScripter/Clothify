@@ -9,13 +9,9 @@ import {
 import "./HomePage.css";
 // import { useAuthState } from "react-firebase-hooks/auth";
 import { Tabs } from "antd";
-import { useSelector } from "react-redux";
 import Header from "../Layout/Header";
 
 const HomePage = () => {
-  const user = useSelector((state) => state.user.user); //just for reference
-  console.log(user);
-
   const [productsData, setProductsData] = useState([]);
 
   //!fetch default products data

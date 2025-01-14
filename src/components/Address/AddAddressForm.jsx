@@ -21,7 +21,6 @@ const AddAddressForm = ({ setIsAddressFormModalOpen }) => {
       style={{ maxWidth: 600 }}
       onFinish={handleFormSubmit}
     >
-      <h3>Contact Details</h3>
       <Form.Item
         label="Name"
         name="name"
@@ -37,7 +36,6 @@ const AddAddressForm = ({ setIsAddressFormModalOpen }) => {
         <Input />
       </Form.Item>
 
-      <h3>Address</h3>
       <Form.Item
         label="pincode"
         name="pincode"

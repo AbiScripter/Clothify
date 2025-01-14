@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Modal, Card, Col, Row } from "antd";
+import { Button, Modal, Card } from "antd";
 import AddressList from "./AddressList";
 import { useSelector } from "react-redux";
 import AddAddressFormModal from "./AddAddressFormModal";
@@ -12,11 +12,13 @@ const Address = () => {
   //if there is no addresss added
   if (addressList.length === 0) {
     return (
-      <>
-        <p>Add Address To place order</p>
+      <div className="flex items-center justify-center gap-4">
+        <p className="">Add Address To place order</p>
+
         {/*address form modal  */}
+
         <AddAddressFormModal />
-      </>
+      </div>
     );
   }
 
@@ -40,21 +42,21 @@ const Address = () => {
   };
 
   return (
-    <div>
+    <div className="">
       {/* address preview on the cart page */}
       <Card className="address_preview">
-        <Row justify="center" align="middle">
-          <Col xs={24} sm={14} lg={16}>
+        <div className="flex flex-col xs:flex-row justify-center items-center gap-3 xs:gap-8">
+          <div>
             <AddressPreview defaultAddress={defaultAddress} />
-          </Col>
+          </div>
 
-          <Col xs={24} sm={10} lg={8}>
+          <div>
             {/* button to show  modal which displays list of address */}
             <Button danger onClick={showModal}>
-              {!defaultAddress ? "Set Default Address" : " CHANGE ADDRESS"}
+              {!defaultAddress ? "Set Default Address" : "CHANGE ADDRESS"}
             </Button>
-          </Col>
-        </Row>
+          </div>
+        </div>
       </Card>
 
       {/* modal to display list of  address => displays only a button which opens a modal */}
@@ -74,14 +76,9 @@ const AddressPreview = ({ defaultAddress }) => {
   let { ...rest } = defaultAddress || {};
   return (
     <div>
+      <p className="capitalize">Deliver to : {rest.name}</p>
       <p>
-        <span>
-          Deliver to: {rest.name}, {rest.pincode}
-        </span>
-        <br />
-        <span>
-          {rest.address}, {rest.city} {rest.pincode}.
-        </span>
+        {rest.address}, {rest.city} {rest.pincode}.
       </p>
     </div>
   );

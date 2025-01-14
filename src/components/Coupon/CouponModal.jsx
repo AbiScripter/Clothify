@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Modal, Row, Col } from "antd";
+import { Button, Modal } from "antd";
 import CouponForm from "./CouponForm";
 
 function stillValid(total, percent) {
@@ -53,13 +53,14 @@ const CouponModal = ({
   };
 
   return (
-    <div className="coupon_container">
-      <Row align="middle">
+    <div className="coupon_container pb-6 border-b">
+      <div align="middle">
         <CouponPreview
           couponDiscountPercent={couponDiscountPercent}
           showModal={showModal}
         />
-      </Row>
+      </div>
+
       <Modal
         open={isCouponModalOpen}
         // onOk={handleOk}
@@ -78,27 +79,22 @@ const CouponModal = ({
 
 const CouponPreview = ({ couponDiscountPercent, showModal }) => {
   return couponDiscountPercent ? (
-    <>
-      <Col xs={18}>
-        <h3> Coupon Applied STEAL{couponDiscountPercent} </h3>
-      </Col>
-      <Col xs={6}>
-        <Button type="primary" danger onClick={showModal}>
-          EDIT
-        </Button>
-      </Col>
-    </>
+    <div className="flex justify-center gap-8 items-center">
+      <h3>
+        Coupon Applied
+        <span className="font-bold"> STEAL{couponDiscountPercent}</span>
+      </h3>
+      <Button type="primary" onClick={showModal}>
+        EDIT
+      </Button>
+    </div>
   ) : (
-    <>
-      <Col xs={18}>
-        <h3>Apply Coupons </h3>
-      </Col>
-      <Col xs={6}>
-        <Button type="primary" onClick={showModal}>
-          APPLY
-        </Button>
-      </Col>
-    </>
+    <div className="flex justify-center gap-4 items-center">
+      <h3>Apply Coupons </h3>
+      <Button type="primary" onClick={showModal}>
+        APPLY
+      </Button>
+    </div>
   );
 };
 

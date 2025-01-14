@@ -27,8 +27,8 @@ const SignUpForm = ({ setIsSignInTab }) => {
 
   return (
     <>
-      <Card className="signup-form-container">
-        <h2>Create an account</h2>
+      <Card className="">
+        <h2 className="text-xl mb-4">Create an account</h2>
 
         <Form
           layout="vertical"
@@ -99,10 +99,10 @@ const SignUpForm = ({ setIsSignInTab }) => {
             Sign Up
           </Button>
 
-          <p>
+          <p className="my-3">
             Already have an account ?&nbsp;
             <span
-              className="form-link"
+              className="text-blue-400 underline font-bold cursor-pointer"
               onClick={() => setIsSignInTab((prev) => !prev)}
             >
               Login
