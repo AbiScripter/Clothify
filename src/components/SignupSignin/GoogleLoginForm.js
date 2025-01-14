@@ -25,6 +25,7 @@ const GoogleLoginForm = () => {
       block
       onClick={handleGoogleSignIn}
       loading={isLoading}
+      disabled={isLoading}
     >
       Login with Google
     </Button>

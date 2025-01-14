@@ -56,7 +56,13 @@ const SignInForm = ({ setIsSignInTab }) => {
           <Input.Password placeholder="Enter Your Password" />
         </Form.Item>
 
-        <Button type="primary" block htmlType="submit" loading={isLoading}>
+        <Button
+          type="primary"
+          block
+          htmlType="submit"
+          loading={isLoading}
+          disabled={isLoading}
+        >
           Login
         </Button>
         <p className="my-3">

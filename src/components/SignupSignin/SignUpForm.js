@@ -95,7 +95,13 @@ const SignUpForm = ({ setIsSignInTab }) => {
             <Input.Password placeholder="Confirm Your Password" />
           </Form.Item>
 
-          <Button type="primary" block htmlType="submit" loading={isLoading}>
+          <Button
+            type="primary"
+            block
+            htmlType="submit"
+            loading={isLoading}
+            disabled={isLoading}
+          >
             Sign Up
           </Button>
 

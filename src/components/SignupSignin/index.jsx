@@ -49,9 +49,13 @@ const GuestLogin = () => {
   return (
     <div className="mt-4">
       <Button
+        color="cyan"
+        variant="solid"
         loading={isLoading}
-        className="bg-green-700 hover:bg-green-600 w-full py-1 rounded-md text-white"
+        className="w-full py-1 rounded-md"
+        type="primary"
         onClick={() => continueAsGuest()}
+        disabled={isLoading}
       >
         Continue as guest
       </Button>
