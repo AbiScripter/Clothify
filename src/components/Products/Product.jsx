@@ -63,45 +63,57 @@ const Product = ({ data }) => {
 
   return (
     <Card
-      className="relative"
+      className="relative w-full xs:w-40 2xs:w-52 lg:w-60"
       cover={<img src={data.imageUrl} alt="product" />}
     >
       {isWishlisted ? (
         <span
-          className="absolute right-2 top-1"
+          className="absolute right-2 top-1 cursor-pointer"
           onClick={() => handleDeleteWishlist(data)}
         >
           {fullHeart}
         </span>
       ) : (
         <span
-          className="absolute right-2 top-1"
+          className="absolute right-2 top-1 cursor-pointer"
           onClick={() => handleAddWishlist(data)}
         >
           {emptyHeart}
         </span>
       )}
 
-      <p className="flex flex-col items-center gap-1">
-        <span className="capitalize">{data.name}</span>
-        <span>₹{data.price}</span>
-      </p>
+      <div className="flex flex-col gap-1">
+        <p className="capitalize">{data.name}</p>
+        <div className="flex justify-between items-center">
+          <p>₹{data.price}</p>
+          <div className="flex justify-center">
+            {qty >= 1 ? (
+              <div>
+                <button
+                  className="border border-gray-300  hover:border-gray-500 px-2"
+                  onClick={() => handleCartSub(data)}
+                >
+                  <MinusOutlined />
+                </button>
+                <span> {qty} </span>
 
-      <div className="flex justify-center items-center mt-2">
-        {qty >= 1 ? (
-          <div>
-            <Button size="small" onClick={() => handleCartSub(data)}>
-              <MinusOutlined />
-            </Button>
-            <span> {qty} </span>
-
-            <Button size="small" onClick={() => handleCartAdd(data)}>
-              <PlusOutlined />
-            </Button>
+                <button
+                  className="border border-gray-300 hover:border-gray-500 px-2"
+                  onClick={() => handleCartAdd(data)}
+                >
+                  <PlusOutlined />
+                </button>
+              </div>
+            ) : (
+              <button
+                className="border border-gray-300 hover:border-gray-500 px-2 sm:px-4"
+                onClick={() => handleCartAdd(data)}
+              >
+                Add to cart
+              </button>
+            )}
           </div>
-        ) : (
-          <Button onClick={() => handleCartAdd(data)}>Add to cart</Button>
-        )}
+        </div>
       </div>
     </Card>
   );

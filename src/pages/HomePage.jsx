@@ -106,7 +106,7 @@ const HomePage = () => {
   return (
     <>
       <Header />
-      <div className="home-page">
+      <div className="home-page w-[99%] mx-auto">
         <Tabs size="large" defaultActiveKey="1" items={items} />
       </div>
     </>

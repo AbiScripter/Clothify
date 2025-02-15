@@ -111,7 +111,7 @@ const Header = () => {
       key: "2",
       label: (
         <NavLink to="/cart" className="navlink">
-          <p className="flex gap-1">
+          <p className="flex gap-1 w-52">
             <span className="">
               <ShoppingOutlined />
             </span>
@@ -128,15 +128,15 @@ const Header = () => {
   ];
 
   return (
-    <div className="px-4 py-1">
+    <div className="px-4 py-2">
       <div className="flex justify-between items-center">
         <div className="left">
           <NavLink to="/home" className="navlink">
             <div className="flex items-center">
-              <img src={logo} alt="logo" className="w-14 h-14" />
+              <img src={logo} alt="logo" className="w-10 h-10" />
               <h1
                 style={{ fontFamily: "Ultra, serif" }}
-                className="hidden sm:block font-bold text-lg -ml-2 -mt-2"
+                className="hidden sm:block font-bold text-lg ml-1"
               >
                 Clothify
               </h1>
@@ -150,7 +150,7 @@ const Header = () => {
         >
           <div className="gap-4 hidden sm:flex">
             <NavLink to="/wishlist" className="navlink">
-              <p className="flex gap-1">
+              <p className="flex gap-1 text-lg hover:text-blue-500">
                 <span className="hidden sm:block">
                   <HeartOutlined />
                 </span>
@@ -158,7 +158,7 @@ const Header = () => {
               </p>
             </NavLink>
             <NavLink to="/cart" className="navlink">
-              <p className="flex gap-1">
+              <p className="flex gap-1 text-lg hover:text-blue-500">
                 <span className="hidden sm:block">
                   <ShoppingOutlined />
                 </span>
@@ -181,7 +181,7 @@ const Header = () => {
             >
               <div>
                 <div className="cursor-pointer text-right capitalize flex gap-1 items-center">
-                  <p className="text-xl bg-gray-300 rounded-full w-10 h-10 flex justify-center items-center">
+                  <p className="text-lg bg-gray-300 rounded-full w-10 h-10 flex justify-center items-center border-blue-500 border-2">
                     {user.name.slice(0, 1)}
                   </p>
                   <CaretDownOutlined />

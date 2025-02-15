@@ -33,7 +33,7 @@ const WishlistPage = () => {
   return (
     <>
       <Header />
-      <div className="grid grid-cols-[repeat(auto-fit,_minmax(100px,_250px))] gap-4 p-4">
+      <div className="grid xs:grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 2xl:flex  gap-3 lg:gap-9 p-2 mt-8">
         {wishlist.map((product) => (
           <WishlistProduct
             product={product}
@@ -53,14 +53,28 @@ const WishlistProduct = ({
   handleMovingToCart,
 }) => {
   return (
-    <Card cover={<img src={product.imageUrl} alt="product" className="" />}>
+    <Card
+      className="relative w-full xs:w-40 2xs:w-52 lg:w-60"
+      cover={<img src={product.imageUrl} alt="product" />}
+    >
       <p className="flex flex-col items-center">
         <span className="capitalize">{product.name}</span>
         <span>₹{product.price}</span>
       </p>
-      <div className="flex gap-2 mt-2">
-        <Button onClick={() => handleMovingToCart(product)}>MOVE TO BAG</Button>
-        <Button danger onClick={() => handleDeleteWishlist(product)}>
+      <div className="flex gap-2 justify-center mt-2 flex-col 2xs:flex-row">
+        <Button
+          size="small"
+          onClick={() => handleMovingToCart(product)}
+          className="text-xs 2xs:text-sm"
+        >
+          MOVE TO BAG
+        </Button>
+        <Button
+          size="small"
+          className="text-xs 2xs:text-sm"
+          danger
+          onClick={() => handleDeleteWishlist(product)}
+        >
           REMOVE
         </Button>
       </div>
