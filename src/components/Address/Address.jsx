@@ -13,7 +13,7 @@ const Address = () => {
   if (addressList.length === 0) {
     return (
       <div className="flex items-center justify-center gap-4">
-        <p className="">Add Address To place order</p>
+        <p className="mt-1">Add Address To place order</p>
 
         {/*address form modal  */}
 
