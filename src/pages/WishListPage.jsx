@@ -33,7 +33,7 @@ const WishlistPage = () => {
   return (
     <>
       <Header />
-      <div className="grid xs:grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 2xl:flex justify-center gap-3 lg:gap-9 p-2 mt-8">
+      <div className="grid xs:grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 2xl:flex justify-center gap-3 lg:gap-9 p-2 mt-8 place-items-center">
         {wishlist.map((product) => (
           <WishlistProduct
             product={product}

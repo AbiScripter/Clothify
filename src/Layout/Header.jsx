@@ -146,9 +146,9 @@ const Header = () => {
 
         <div
           style={{ fontSize: "1rem" }}
-          className="flex gap-4 justify-end items-center"
+          className="flex gap-8 justify-end items-center"
         >
-          <div className="gap-4 hidden sm:flex">
+          <div className="gap-8 hidden sm:flex">
             <NavLink to="/wishlist" className="navlink">
               <p className="flex gap-1 text-lg hover:text-blue-500">
                 <span className="hidden sm:block">
