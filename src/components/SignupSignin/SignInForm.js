@@ -19,7 +19,7 @@ const SignInForm = ({ setIsSignInTab }) => {
   }
 
   return (
-    <Card className="signin-form-container">
+    <Card className="signin-form-container p-3">
       <h2 className="text-xl mb-4">Hi, Welcome Back 👋</h2>
       <Form
         onFinish={handleFormSubmit}

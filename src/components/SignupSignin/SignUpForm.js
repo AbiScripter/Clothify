@@ -27,12 +27,12 @@ const SignUpForm = ({ setIsSignInTab }) => {
 
   return (
     <>
-      <Card className="">
+      <Card className="p-3 w-full">
         <h2 className="text-xl mb-4">Create an account</h2>
 
         <Form
           layout="vertical"
-          className="signup-form"
+          className="signup-form "
           onFinish={handleFormSubmit}
           form={form}
           // variant="filled"

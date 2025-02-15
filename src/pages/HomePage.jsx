@@ -10,6 +10,7 @@ import "./HomePage.css";
 // import { useAuthState } from "react-firebase-hooks/auth";
 import { Tabs } from "antd";
 import Header from "../Layout/Header";
+import Footer from "../Layout/Footer";
 
 const HomePage = () => {
   const [productsData, setProductsData] = useState([]);
@@ -109,6 +110,7 @@ const HomePage = () => {
       <div className="home-page w-[99%] mx-auto">
         <Tabs size="large" defaultActiveKey="1" items={items} />
       </div>
+      {/* <Footer /> */}
     </>
   );
 };
