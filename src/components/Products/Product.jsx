@@ -63,7 +63,7 @@ const Product = ({ data }) => {
 
   return (
     <Card
-      className="relative w-full xs:w-40 2xs:w-52 lg:w-60"
+      className="relative w-full 2xs:w-52 lg:w-60"
       cover={<img src={data.imageUrl} alt="product" />}
     >
       {isWishlisted ? (
