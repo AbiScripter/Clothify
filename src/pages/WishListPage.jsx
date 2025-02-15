@@ -54,7 +54,7 @@ const WishlistProduct = ({
 }) => {
   return (
     <Card
-      className="relative w-full xs:w-40 2xs:w-52 lg:w-60"
+      className="relative w-full 2xs:w-52 lg:w-60"
       cover={<img src={product.imageUrl} alt="product" />}
     >
       <p className="flex flex-col items-center">

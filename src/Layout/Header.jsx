@@ -185,7 +185,7 @@ const Header = () => {
             >
               <div>
                 <div className="cursor-pointer text-right capitalize flex gap-1 items-center">
-                  <p className="text-lg bg-gray-300 rounded-full w-10 h-10 flex justify-center items-center border-blue-500 border-2">
+                  <p className="text-lg bg-gray-300 rounded-full w-10 h-10 flex justify-center items-center hover:border-blue-500 border-2">
                     {user.name.slice(0, 1)}
                   </p>
                   <CaretDownOutlined />
