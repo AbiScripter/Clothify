@@ -50,7 +50,11 @@ const ConfirmLogout = () => {
 
   return (
     <div>
-      <p type="primary" className="flex items-center gap-1" onClick={showModal}>
+      <p
+        type="primary"
+        className="flex items-center text-base gap-1"
+        onClick={showModal}
+      >
         <span>
           <LogoutOutlined className="" />
         </span>
@@ -85,7 +89,7 @@ const Header = () => {
       key: "0",
       disabled: true,
       label: (
-        <div>
+        <div className="text-base">
           <p className="text-black capitalize">{user.name}</p>
           <p className="text-black">{user.email}</p>
         </div>
@@ -98,7 +102,7 @@ const Header = () => {
       key: "1",
       label: (
         <NavLink to="/wishlist" className="navlink">
-          <p className="flex gap-1">
+          <p className="flex gap-1 text-base">
             <span className="">
               <HeartOutlined />
             </span>
@@ -111,7 +115,7 @@ const Header = () => {
       key: "2",
       label: (
         <NavLink to="/cart" className="navlink">
-          <p className="flex gap-1 w-52">
+          <p className="flex gap-1 w-60 text-base">
             <span className="">
               <ShoppingOutlined />
             </span>

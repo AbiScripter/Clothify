@@ -90,7 +90,7 @@ const Product = ({ data }) => {
             {qty >= 1 ? (
               <div>
                 <button
-                  className="border border-gray-300  hover:border-gray-500 px-2"
+                  className="border border-gray-300  hover:border-gray-500 px-2 rounded-md"
                   onClick={() => handleCartSub(data)}
                 >
                   <MinusOutlined />
@@ -98,7 +98,7 @@ const Product = ({ data }) => {
                 <span> {qty} </span>
 
                 <button
-                  className="border border-gray-300 hover:border-gray-500 px-2"
+                  className="border border-gray-300 hover:border-gray-500 px-2 rounded-md"
                   onClick={() => handleCartAdd(data)}
                 >
                   <PlusOutlined />
@@ -106,7 +106,7 @@ const Product = ({ data }) => {
               </div>
             ) : (
               <button
-                className="border border-gray-300 hover:border-gray-500 px-2 sm:px-4"
+                className="border border-gray-300 hover:border-gray-500 px-2 sm:px-4 rounded-md"
                 onClick={() => handleCartAdd(data)}
               >
                 Add to cart
